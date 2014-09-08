@@ -17,9 +17,9 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php"
 		],
-        "psr-4" : {
-            "Chenkacrud\\": "app/Chenkacrud"
-        }
+			"psr-4" : {
+    	"Chenkacrud\\": "app/Chenkacrud"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
