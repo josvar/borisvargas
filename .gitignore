@@ -8,7 +8,6 @@
 /test/bower_components
 /public/assets
 composer.phar
-composer.lock
 .env.*.php
 .env.php
 !.env.example.php
