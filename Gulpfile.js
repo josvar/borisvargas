@@ -5,7 +5,6 @@ var gulp = require('gulp');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
-var del = require('del');
 
 var bowerDir = 'app/assets/bower_components/';
 var scriptsPaths = { vendor: [ bowerDir + 'jquery/dist/jquery.min.js',
