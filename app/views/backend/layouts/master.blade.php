@@ -13,12 +13,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="shortcut icon" href="{{ asset('statics/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
     @section('styles')
-    <link rel="stylesheet" href="{{ asset('statics/bower_components/foundation-icon-fonts/foundation-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('statics/styles/vendor.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}"/>
-    <script src="{{ asset('statics/scripts/vendor/modernizr.js') }}"></script>
+    <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>
     @show
 
 </head>

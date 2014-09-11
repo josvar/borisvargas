@@ -90,7 +90,7 @@ gulp.task('watch-process', [ 'scripts-build-vendor', 'styles', 'scripts', 'image
         'public/assets/scripts/**/*.js',
         'public/assets/images/**/*'
     ]).on('change', function (file) {
-        server.changed(file.path);
+
     });
 
     gulp.watch('app/assets/styles/**/*.scss', ['styles']);

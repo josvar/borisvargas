@@ -9,8 +9,7 @@
   font-weight: bold;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,600,300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600);
 
-
- $fi-path: "fonts";
+$fi-path: "fonts";
 @import "foundation-icon-fonts/foundation-icons";
