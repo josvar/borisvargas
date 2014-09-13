@@ -1,0 +1,101 @@
+@import "partials-front/fonts";
+@import "partials-front/color";
+@import "settings-boris";
+@import "foundation/scss/foundation";
+@import "partials-front/grid";
+
+.button {
+  text-transform: uppercase;
+}
+input, textarea {
+  font-weight: 900;
+  padding: 1.5rem;
+  text-transform: uppercase;
+}
+input[type="text"] {
+  padding: 1rem;
+}
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase ;
+}
+
+.page.contact {
+  h1{
+    font-size: rem-calc(60px);
+  }
+}
+
+.page {
+  nav .left a {
+    text-transform: uppercase;
+  }
+
+  .title-container{
+    margin-bottom: 30px;
+  }
+
+  .form-container{
+    margin-bottom: 40px;
+  }
+
+  .contain-to-grid {
+    padding: 20px 0 20px;
+    margin: 0 0 20px;
+  }
+
+  @include grid-row();
+  max-width: 100%;
+  h1 {
+
+  }
+}
+
+.container-footer {
+  background-color: #000000;
+  padding: 30px 0 15px 0;
+  .footer {
+    @include grid-row();
+    p {
+      font-size: rem-calc(12);
+      padding: 0 100px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+}
+
+.page.home {
+  .contain-to-grid, .top-bar, .container-footer {
+    background-color: $salmon;
+  }
+
+  height: 100%;
+  background-color: $salmon;
+  .title-container {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 20%;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    padding-left: 20px;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    border: solid 6px #fff;
+  }
+  div.container-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+  }
+  div.footer {
+    position: relative;
+    p {
+      color: #fff;
+    }
+  }
+}

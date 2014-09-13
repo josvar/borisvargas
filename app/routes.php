@@ -1,8 +1,7 @@
 <?php
 
-Route::get('/', function ()
-{
-    return View::make('hello');
+Route::group(['namespace' => 'Frontend'], function() {
+    Route::controller('/', 'FrontController');
 });
 
 # Route Group with Prefix to Backend
@@ -41,4 +40,3 @@ Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
 
     });
 });
-

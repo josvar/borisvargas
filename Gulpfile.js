@@ -19,12 +19,11 @@ var scriptsPaths = { vendor: [ bowerDir + 'jquery/dist/jquery.min.js',
                     };
 
 gulp.task('styles', function () {
-  return gulp.src('app/assets/styles/main.scss')
+  return gulp.src(['app/assets/styles/main.scss', 'app/assets/styles/boris.scss'])
     .pipe($.rubySass({
       style: 'expanded',
       loadPath: 'app/assets/bower_components',
-      precision: 10,
-      quiet: true
+      precision: 10
     }))
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('public/assets/styles'))
@@ -80,10 +79,10 @@ gulp.task('clean', function () {
   return gulp.src(['public/assets'], { read: false }).pipe($.clean());
 });
 
-gulp.task('watch', ['clean'], function () {
+gulp.task('watch', ['clean', 'styles'], function () {
   gulp.start('watch-process');
 });
-gulp.task('watch-process', [ 'scripts-build-vendor', 'styles', 'scripts', 'images', 'fonts', 'ckeditor' ],function () {
+gulp.task('watch-process', [ 'scripts-build-vendor', 'scripts', 'images', 'fonts', 'ckeditor'],function () {
     // watch for changes
     gulp.watch([
         'public/assets/styles/**/*.css',
@@ -100,12 +99,12 @@ gulp.task('watch-process', [ 'scripts-build-vendor', 'styles', 'scripts', 'image
 });
 
 
-gulp.task('build-process', ['scripts-build', 'styles', 'images', 'fonts', 'ckeditor'], function () {
+gulp.task('build-process', ['scripts-build', 'images', 'fonts', 'ckeditor'], function () {
   return gulp.src('public/assets/styles/main.css')
     .pipe($.csso())
     .pipe(gulp.dest('public/assets/styles'));
 });
-gulp.task('build', [ 'clean' ], function () {
+gulp.task('build', [ 'clean', 'styles' ], function () {
   gulp.start('build-process');
 });
 
