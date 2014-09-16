@@ -9,8 +9,8 @@ Boris' Portfolio
 
     @include('frontend.partials.menu')
 
-    <div class="row">
-        <div class="columns title-container">
+    <div class="row first-container">
+        <div class="columns">
             <h1>Boris Vargas</h1>
         </div>
     </div>

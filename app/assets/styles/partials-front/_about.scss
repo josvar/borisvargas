@@ -1,0 +1,13 @@
+.page.about{
+  h1.title-huge{
+    margin-bottom: 25px;
+  }
+
+  .first-container{
+    padding-top: 0;
+    @media #{$medium-up} {
+      padding-top: 35px;
+    }
+  }
+
+}

@@ -46,6 +46,10 @@
     ga('send', 'pageview');
 </script>
 
+<script>
+    $(document).foundation();
+</script>
+
 @show
 </body>
 </html>

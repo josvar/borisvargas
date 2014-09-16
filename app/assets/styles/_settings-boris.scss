@@ -233,6 +233,7 @@ $header-font-color: $salmon;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
+$paragraph-font-weight: 300;
 // $paragraph-font-size: 1rem;
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: rem-calc(20);
@@ -1196,6 +1197,7 @@ $input-font-size: rem-calc(18);
 
 // We use these to control margin and padding
 // $sub-nav-list-margin: rem-calc(-4 0 18);
+$sub-nav-list-margin: rem-calc(-4 0 10);
 // $sub-nav-list-padding-top: rem-calc(4);
 
 // We use this to control the definition
@@ -1205,7 +1207,9 @@ $input-font-size: rem-calc(18);
 // $sub-nav-font-weight: $font-weight-normal;
 // $sub-nav-text-decoration: none;
 // $sub-nav-padding: rem-calc(3 16);
+$sub-nav-padding: rem-calc(3 3);
 // $sub-nav-border-radius: 3px;
+$sub-nav-border-radius: 0;
 // $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 
 // We use these to control the active item styles
@@ -1386,12 +1390,12 @@ $topbar-dropdown-bg: #fff;
 // $topbar-link-color: $white;
 $topbar-link-color: #9b9b9b;
 $topbar-link-color-hover: $salmon;
-;
 $topbar-link-color-active: $salmon;
 $topbar-link-color-active-hover: $salmon;
 // $topbar-link-weight: $font-weight-normal;
 $topbar-link-weight: 900;
 // $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(14);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 $topbar-link-bg: $topbar-bg;
@@ -1421,6 +1425,8 @@ $topbar-link-bg-active-hover: #fff;
 // $topbar-menu-link-weight: $font-weight-bold;
 // $topbar-menu-link-color: $white;
 // $topbar-menu-icon-color: $white;
+$topbar-menu-link-color: $salmon;
+$topbar-menu-icon-color: $salmon;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;
 

@@ -18,8 +18,20 @@ var scriptsPaths = { vendor: [ bowerDir + 'jquery/dist/jquery.min.js',
                       user:  [ 'app/assets/scripts/**/*.js' ]
                     };
 
+gulp.task('styles-back', function () {
+    return gulp.src(['app/assets/styles/main.scss'])
+        .pipe($.rubySass({
+            style: 'expanded',
+            loadPath: 'app/assets/bower_components',
+            precision: 10
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('public/assets/styles'))
+        .pipe($.size());
+});
+
 gulp.task('styles', function () {
-  return gulp.src(['app/assets/styles/main.scss', 'app/assets/styles/boris.scss'])
+  return gulp.src(['app/assets/styles/boris.scss'])
     .pipe($.rubySass({
       style: 'expanded',
       loadPath: 'app/assets/bower_components',

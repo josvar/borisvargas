@@ -1,0 +1,20 @@
+.page.services {
+  .title-service {
+    text-align: center;
+  }
+  h5{
+    font-weight: 400;
+    color: #333;
+  }
+  p{
+    font-weight: 300;
+    font-size: rem-calc(16);
+  }
+  img{
+    padding: 30px;
+  }
+  .services-container{
+    text-align: center;
+    margin-bottom: 80px;
+  }
+}

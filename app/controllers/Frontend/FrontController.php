@@ -14,6 +14,19 @@ class FrontController extends \BaseController {
         return View::make('frontend.contact');
     }
 
+    public function getServices()
+    {
+        return View::make('frontend.services');
+    }
 
+    public function getAbout()
+    {
+        return View::make('frontend.about');
+    }
+
+    public function getWork()
+    {
+        return View::make('frontend.work');
+    }
 
 }

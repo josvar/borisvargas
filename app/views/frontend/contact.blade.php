@@ -9,14 +9,14 @@ Boris' Portfolio
 
     @include('frontend.partials.menu')
 
-    <div class="row title-container">
+    <div class="row first-container">
         <div class="columns">
-            <h1>Say Hello</h1>
+            <h1 class="title-huge">Say Hello</h1>
         </div>
     </div>
     <div class="row form-container">
         <div class="columns">
-            <div class="row">
+            <div class="row name-email">
                 <!-- Name Form Input -->
                 <div class="columns large-6">
                     {{ Form::text('name', null, ['placeholder' => 'Your Name'] ) }}
@@ -28,10 +28,10 @@ Boris' Portfolio
             </div>
 
             <!-- Message Form Input -->
-            <div class="row">
+            <div class="row message">
                 <div class="columns">
 
-                    {{ Form::textarea('message', null, ['placeholder' => 'Your Message'] ) }}
+                    {{ Form::textarea('message', null, ['placeholder' => 'Your Message', 'rows' => 9] ) }}
 
                 </div>
             </div>
@@ -45,15 +45,5 @@ Boris' Portfolio
 
         </div>
     </div>
-    <div class="container-footer">
-        <div class="footer">
-            <div class="columns">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid atque aut consequuntur
-                    corporis, distinctio dolor earum, eum libero molestias nihil officia porro, quas reprehenderit
-                    repudiandae sed soluta veniam veritatis!</p>
-            </div>
-        </div>
-    </div>
-
 </div>
 @stop

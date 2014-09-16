@@ -3,26 +3,44 @@
 @import "settings-boris";
 @import "foundation/scss/foundation";
 @import "partials-front/grid";
+@import "partials-front/contact";
+@import "partials-front/home";
+@import "partials-front/service";
+@import "partials-front/about";
+@import "partials-front/work";
+
+.first-container {
+  margin-bottom: 30px;
+  @media #{$small-only} {
+  }
+}
+
+p.resume {
+  font-weight: 400;
+}
 
 .button {
   text-transform: uppercase;
 }
+
 input, textarea {
   font-weight: 900;
-  padding: 1.5rem;
+  padding: 1rem;
   text-transform: uppercase;
 }
+
 input[type="text"] {
   padding: 1rem;
-}
-h1,h2,h3,h4,h5,h6{
-  text-transform: uppercase ;
+  height: auto;
 }
 
-.page.contact {
-  h1{
-    font-size: rem-calc(60px);
-  }
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+.title-huge {
+  font-size: rem-calc(60px);
+  line-height: 1;
 }
 
 .page {
@@ -30,72 +48,61 @@ h1,h2,h3,h4,h5,h6{
     text-transform: uppercase;
   }
 
-  .title-container{
-    margin-bottom: 30px;
+  .title-container {
+    margin-bottom: 20px;
   }
 
-  .form-container{
-    margin-bottom: 40px;
-  }
-
+  // TOP NAV
   .contain-to-grid {
+    @media #{$small-only} {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid $salmon;
+      ul.left {
+        border-top: 1px solid $salmon;
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+      ul li.left:not(:last-child) {
+        border-bottom: 1px solid $salmon;
+      }
+      ul li.right:not(:last-child) {
+        border-bottom: 1px solid $salmon;
+      }
+
+    }
+    @media #{$medium-up} {
+      margin: 0 0 40px;
+    }
     padding: 20px 0 20px;
-    margin: 0 0 20px;
+    margin: 0;
   }
 
-  @include grid-row();
+  @media #{$small-only}{
+    margin-top: 70px;
+    padding-top: 20px;
+  }
   max-width: 100%;
   h1 {
 
   }
-}
-
-.container-footer {
-  background-color: #000000;
-  padding: 30px 0 15px 0;
-  .footer {
-    @include grid-row();
-    p {
-      font-size: rem-calc(12);
-      padding: 0 100px;
-      text-align: center;
-      color: #fff;
+  .container-footer {
+    background-color: #000000;
+    padding: 30px 0 15px 0;
+    .footer {
+      @include grid-row();
+      p {
+        font-size: rem-calc(12);
+        @media #{$medium-up} {
+          padding: 0 100px;
+        }
+        text-align: center;
+        color: #fff;
+      }
     }
   }
-}
-
-.page.home {
-  .contain-to-grid, .top-bar, .container-footer {
-    background-color: $salmon;
-  }
-
-  height: 100%;
-  background-color: $salmon;
-  .title-container {
-    text-align: center;
-  }
-
-  h1 {
-    margin-top: 20%;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-    padding-left: 20px;
-    color: #fff;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    border: solid 6px #fff;
-  }
-  div.container-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 10%;
-  }
-  div.footer {
-    position: relative;
-    p {
-      color: #fff;
-    }
+  .body-container {
+    margin-bottom: 40px;
   }
 }
