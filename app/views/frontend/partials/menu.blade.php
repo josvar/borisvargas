@@ -20,11 +20,11 @@
 
             <!-- Left Nav Section -->
             <ul class="left">
-                <li class="{{ set_active('/') }}"><a href="/">Home</a></li>
-                <li class="{{ set_active('about') }}"><a href="about">About</a></li>
-                <li class="{{ set_active('work') }}"><a href="work">Work</a></li>
-                <li class="{{ set_active('services') }}"><a href="services">Services</a></li>
-                <li class="{{ set_active('contact') }}"><a href="contact">Contact</a></li>
+                <li data-async="home" class="{{ set_active('/') }}"><a class="nav-link" href="/">Home</a></li>
+                <li data-async="about" class="{{ set_active('about') }}"><a class="nav-link" href="about">About</a></li>
+                <li data-async="work" class="{{ set_active('work') }}"><a class="nav-link" href="work">Work</a></li>
+                <li data-async="services" class="{{ set_active('services') }}"><a class="nav-link" href="services">Services</a></li>
+                <li data-async="contact" class="{{ set_active('contact') }}"><a class="nav-link" href="contact">Contact</a></li>
             </ul>
         </section>
     </nav>

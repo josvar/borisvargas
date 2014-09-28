@@ -15,16 +15,23 @@
 
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
     @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>
+{{--    <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>--}}
     <link rel="stylesheet" href="{{ asset('assets/styles/boris.css') }}"/>
-    <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>
+{{--    <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>--}}
     @show
 
 </head>
 <body class="">
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
 
-@yield('body', '')
-
+@section('menu')
+@include('frontend.partials.menu')
+@show
+<div class="content">
+    @yield('body', '')
+</div>
 @section('scripts')
 <script src="{{ asset('assets/scripts/vendor.js') }}"></script>
 
@@ -49,6 +56,7 @@
 <script>
     $(document).foundation();
 </script>
+<script src="{{ asset('assets/scripts/boris.js') }}"></script>
 
 @show
 </body>

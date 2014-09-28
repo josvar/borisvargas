@@ -15,7 +15,8 @@ var scriptsPaths = { vendor: [ bowerDir + 'jquery/dist/jquery.min.js',
                                bowerDir + 'jquery-placeholder/jquery.placeholder.js',
                                bowerDir + 'foundation/js/foundation.min.js',
                                bowerDir + 'hogan/web/builds/3.0.2/hogan-3.0.2.min.js'] ,
-                      user:  [ 'app/assets/scripts/**/*.js' ]
+                      user:  [ 'app/assets/scripts/**/*.js' ],
+                      userFront: [ 'app/assets/scripts/frontend/**/*.js' ]
                     };
 
 gulp.task('styles-back', function () {
@@ -42,10 +43,16 @@ gulp.task('styles', function () {
     .pipe($.size());
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts-back', function () {
   gulp.src(scriptsPaths.user)
     .pipe($.concat('main.js'))
     .pipe(gulp.dest('public/assets/scripts'));
+});
+
+gulp.task('scripts', function () {
+    gulp.src(scriptsPaths.userFront)
+        .pipe($.concat('boris.js'))
+        .pipe(gulp.dest('public/assets/scripts'));
 });
 
 gulp.task('scripts-build-vendor', function () {
