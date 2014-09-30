@@ -11,19 +11,6 @@
 ;
 (function ($, window, document, undefined) {
 
-    // undefined is used here as the undefined global
-    // variable in ECMAScript 3 and is mutable (i.e. it can
-    // be changed by someone else). undefined isn't really
-    // being passed in so we can ensure that its value is
-    // truly undefined. In ES5, undefined can no longer be
-    // modified.
-
-    // window and document are passed through as local
-    // variables rather than as globals, because this (slightly)
-    // quickens the resolution process and can be more
-    // efficiently minified (especially when both are
-    // regularly referenced in your plugin).
-
     // Create the defaults once
     var pluginName = "loader",
         defaults = {
@@ -34,51 +21,159 @@
     function Plugin(element, options) {
         this.element = element;
 
-        // jQuery has an extend method that merges the
-        // contents of two or more objects, storing the
-        // result in the first object. The first object
-        // is generally empty because we don't want to alter
-        // the default options for future instances of the plugin
         this.options = $.extend({}, defaults, options);
 
         this._defaults = defaults;
-        this._name = pluginName;
+        this._name = pluginName
 
-        this.links = this.options.menu.find('a.nav-link');
-        this.current = this.options.menu.find('li.active');
+        this.menu = {
+            init: function (menu, cmd) {
+                this.menuElem = menu;
+                this.cmd = cmd;
+                this.currentElem = menu.find('li.active');
+
+                //bind click menu
+                this.menuElem.on('click', '[data-async] a.nav-link', {that: this}, this.click_menu);
+
+                // Foundation close top-bar
+                this.menuElem.find('.nav-link').click(function (evt, fakestatus) {
+                    if(typeof fakestatus === 'undefined')
+                        $('.toggle-topbar').click();
+                });
+            },
+            click_menu: function (e, fakeStatus) {
+                var that = e.data.that;
+                that.currentElem.removeClass('active').find('a').blur();
+                that.currentElem = $(this).parent().addClass('active');
+                that.currentElem.find('a').blur();
+
+                var currentID = that.currentElem.data('async');
+                fakeStatus = fakeStatus || false;
+                // Execute command here!
+                that.cmd.execute('api/section', currentID, {
+                    fake: fakeStatus,
+                    menu: {
+                        id: currentID
+                    }
+                });
+                e.preventDefault();
+            },
+            find: function (id) {
+                return this.menuElem.find('[data-async=' + id + '] a.nav-link');
+            }
+        };
+
+        // ShowCommand
+        this.showCmd = {
+            init: function (content, status) {
+                this.content = content;
+                this.status = status;
+                return this;
+            },
+            execute: function (endpoint, id, state) {
+                //make request
+                this.makeRequest(endpoint + "/" + id)
+                    .done(function (data) {
+                        this.successRequest(data, id, state);
+                    })
+                    .fail(function () {
+                        this.failRequest();
+                    });
+            },
+            makeRequest: function (url) {
+                return $.ajax({
+                    context: this,
+                    type: 'GET',
+                    url: url
+                });
+            },
+            successRequest: function (data, id, state) {
+                //update status page: title, history, etc
+                if ( state.fake == false)
+                    this.status.update(data.title, id, state);
+                //load page
+                this.content.render(data);
+            },
+            failRequest: function () {
+                console.log('Error');
+            }
+        }
+        // links ajax async of Section
+        this.links = {
+            init: function (links_content, cmd) {
+                this.cmd = cmd;
+                this.reset_events();
+                this.addEvents(links_content);
+            },
+            click_link: function (e) {
+                var that = e.data.that;
+                that.cmd.execute(that.current.data('async'));
+                e.preventDefault();
+            },
+            re_init: function (links_content) {
+                this.reset_events();
+                this.addEvents(links_content);
+            },
+            reset_events: function () {
+                this.links_async.off();
+            },
+            addEvents: function (links_content) {
+                this.links_async = links_content.find('[data-async] a.nav-link');
+                this.links_async.on('click', {that: this}, this.click_link);
+            }
+        };
+
+        // place to load the sections
+        this.content = {
+            init: function (main_content, pre) {
+                this.main_content = main_content;
+                this.pre = pre;
+            },
+            render: function (data) {
+                var that = this;
+                this.main_content.fadeOut('slow', function () {
+                    that.pre.fadeIn('slow', function () {
+                        //load page
+                        that.main_content[0].innerHTML = data.html;
+                        that.pre.hide();
+                        that.main_content.fadeIn('slow', function () {
+                        });
+                    });
+                });
+            }
+        };
+        this.status = {
+            init: function (historyObj, document) {
+                this.history = historyObj;
+                this.document = document;
+            },
+            update: function (title, id, state) {
+                this.document.title = title;
+                this.history.pushState(state, title, id);
+                //console.log(state);
+            }
+        };
 
         this.init();
     }
 
     Plugin.prototype = {
-
         init: function () {
-            this.options.menu.on('click', 'a.nav-link', {that: this}, this.showSection);
-        },
-
-        showSection: function (e) {
-            var that = e.data.that;
-            that.current.removeClass('active');
-            that.current = $(this).parent().addClass('active');
-            $(that.element).fadeOut('slow', function () {
-                that.options.pre.fadeIn('slow', function () {
-                    //load page
-                    $.get("api/section/" + that.current.data('async'), function (data) {
-                        var parent = that.element.parentNode;
-                        parent.innerHTML = data.html;
-                        that.element = parent.firstChild;
-                        $(parent).hide();
-                        that.options.pre.hide();
-
-                        $(parent).fadeIn('slow', function () {});
-
-                    })
-                        .fail(function () {
-                            console.log('fail');
-                        });
-                });
+            this.status.init(window.history, document, window);
+            // bind event popstate
+            $(window).on('popstate', {menu: this.menu}, function (e) {
+                if (window.history.state && window.history.state.hasOwnProperty('menu')) {
+                    e.data.menu.find(history.state.menu.id)
+                        .trigger('click', [true]);
+                }
+                else{
+                    window.location.reload();
+                }
             });
-            e.preventDefault();
+
+            this.content.init($(this.element), this.options.pre);
+            this.showCmd.init(this.content, this.status)
+            this.menu.init(this.options.menu, this.showCmd);
         }
     };
 
@@ -95,11 +190,8 @@
 
 })(jQuery, window, document);
 
-$('.page').loader({
+$('.main-content').loader({
     menu: $('nav.top-bar'),
     pre: $('#preloader')
 })
 
-$('.nav-link').click(function(evt) {
-    $('.toggle-topbar').click();
-});

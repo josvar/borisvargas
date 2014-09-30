@@ -29,7 +29,7 @@
 @section('menu')
 @include('frontend.partials.menu')
 @show
-<div class="content">
+<div class="main-content">
     @yield('body', '')
 </div>
 @section('scripts')

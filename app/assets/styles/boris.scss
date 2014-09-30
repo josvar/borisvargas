@@ -63,7 +63,6 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid $salmon;
     ul.left {
       border-top: 1px solid $salmon;
-      margin-top: 20px;
       padding-top: 20px;
     }
     ul li.left:not(:last-child) {
@@ -134,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 50%;
     left: 50%;
     margin-top: -15px;
-    margin-left: -45px;
+    margin-left: -30px;
     background: url(/assets/images/preloader.gif) no-repeat center;
     background-size: 60px;
   }
