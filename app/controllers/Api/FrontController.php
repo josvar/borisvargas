@@ -12,8 +12,11 @@ class FrontController extends \BaseController {
         //validate view name
 
         $view = View::make($viewName)->render();
-        return Response::json(array( 'title' => $siteName . ' - ' . ucfirst($name) ,
-                                     'path' => '', 'html' => $view ));
+        if($name == 'home')
+            $title =  $siteName;
+        else
+            $title =  $siteName . ' - ' . ucfirst($name);
+        return Response::json(array( 'title' => $title , 'path' => '', 'html' => $view ));
     }
 
 }

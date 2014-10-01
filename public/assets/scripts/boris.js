@@ -37,7 +37,7 @@
 
                 // Foundation close top-bar
                 this.menuElem.find('.nav-link').click(function (evt, fakestatus) {
-                    if(typeof fakestatus === 'undefined')
+                    if (typeof fakestatus === 'undefined')
                         $('.toggle-topbar').click();
                 });
             },
@@ -89,8 +89,10 @@
             },
             successRequest: function (data, id, state) {
                 //update status page: title, history, etc
-                if ( state.fake == false)
+                if ( state.fake == false) {
+                    if(id == 'home') id = '/';
                     this.status.update(data.title, id, state);
+                }
                 //load page
                 this.content.render(data);
             },
@@ -143,18 +145,25 @@
             }
         };
         this.status = {
-            init: function (historyObj, document) {
-                this.history = historyObj;
+            init: function (window, document, context) {
+                this.history = window.history;
                 this.document = document;
+                this.context = context;
+                // bind event popstate
+                $(window).on('popstate', {context: this.context}, function (e) {
+                    if (window.history.state && window.history.state.hasOwnProperty('menu')) {
+                        e.data.context.menu.find(history.state.menu.id)
+                            .trigger('click', [true]);
+                    }
+                    else{
+                        window.location.reload();
+                    }
+                });
 
-                //start history
-                //todo: implement method for init first load
-                //this.history.replaceState({}, document.title, '');
             },
             update: function (title, id, state) {
                 this.document.title = title;
                 this.history.pushState(state, title, id);
-                //console.log(state);
             }
         };
 
@@ -163,18 +172,7 @@
 
     Plugin.prototype = {
         init: function () {
-            this.status.init(window.history, document, window);
-            // bind event popstate
-            $(window).on('popstate', {menu: this.menu}, function (e) {
-                if (window.history.state && window.history.state.hasOwnProperty('menu')) {
-                    e.data.menu.find(history.state.menu.id)
-                        .trigger('click', [true]);
-                }
-                else{
-                    window.location.reload();
-                }
-            });
-
+            this.status.init(window, document, this);
             this.content.init($(this.element), this.options.pre);
             this.showCmd.init(this.content, this.status)
             this.menu.init(this.options.menu, this.showCmd);
