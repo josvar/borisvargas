@@ -23,7 +23,7 @@ define([
     };
     var _showSection = function (id) {
         console.log(id);
-        var m = new Content({id: id})
+        var m = new Content({id: id});
         _loadView(m);
         app.menu.active(id);
     };
