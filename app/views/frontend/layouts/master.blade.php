@@ -22,9 +22,6 @@
 
 </head>
 <body class="">
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
 
 @section('menu')
 @include('frontend.partials.menu')
@@ -33,7 +30,7 @@
     @yield('body', '')
 </div>
 @section('scripts')
-<script src="{{ asset('assets/scripts/vendor.js') }}"></script>
+{{--<script src="{{ asset('assets/scripts/vendor.js') }}"></script>--}}
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
@@ -53,10 +50,10 @@
     ga('send', 'pageview');
 </script>
 
-<script>
-    $(document).foundation();
-</script>
-<script src="{{ asset('assets/scripts/boris.js') }}"></script>
+{{--<script>--}}
+    {{--$(document).foundation();--}}
+{{--</script>--}}
+<script data-main="{{ asset('assets/scripts/frontend/main') }}" src="{{ asset('assets/scripts/libs/require.js') }}"></script>
 
 @show
 </body>

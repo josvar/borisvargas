@@ -7,17 +7,22 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
 var bowerDir = 'app/assets/bower_components/';
-var scriptsPaths = { vendor: [ bowerDir + 'jquery/dist/jquery.min.js',
-                               bowerDir + 'underscore/underscore.js',
-                               bowerDir + 'backbone/backbone.js',
-                               bowerDir + 'fastclick/lib/fastclick.js',
-                               bowerDir + 'jquery.cookie/jquery.cookie.js',
-                               bowerDir + 'jquery-placeholder/jquery.placeholder.js',
-                               bowerDir + 'foundation/js/foundation.min.js',
-                               bowerDir + 'hogan/web/builds/3.0.2/hogan-3.0.2.min.js'] ,
-                      user:  [ 'app/assets/scripts/**/*.js' ],
-                      userFront: [ 'app/assets/scripts/frontend/**/*.js' ]
-                    };
+var scriptsPaths = {
+    vendor: [bowerDir + 'jquery/dist/jquery.min.js',
+        bowerDir + 'underscore/underscore.js',
+        bowerDir + 'backbone/backbone.js',
+        bowerDir + 'fastclick/lib/fastclick.js',
+        bowerDir + 'jquery.cookie/jquery.cookie.js',
+        bowerDir + 'jquery-placeholder/jquery.placeholder.js',
+        bowerDir + 'foundation/js/foundation.min.js',
+        bowerDir + 'hogan/web/builds/3.0.2/hogan-3.0.2.min.js'],
+    user: ['app/assets/scripts/**/*.js'],
+    libs: [ bowerDir + 'jquery/dist/jquery.js',
+            bowerDir + 'backbone/backbone.js',
+            bowerDir + 'lodash/dist/lodash.js',
+            bowerDir + 'requirejs/require.js' ],
+    userFront: ['app/assets/scripts/frontend/**/*.js']
+};
 
 gulp.task('styles-back', function () {
     return gulp.src(['app/assets/styles/main.scss'])
@@ -32,41 +37,53 @@ gulp.task('styles-back', function () {
 });
 
 gulp.task('styles', function () {
-  return gulp.src(['app/assets/styles/boris.scss'])
-    .pipe($.rubySass({
-      style: 'expanded',
-      loadPath: 'app/assets/bower_components',
-      precision: 10
-    }))
-    .pipe($.autoprefixer('last 1 version'))
-    .pipe(gulp.dest('public/assets/styles'))
-    .pipe($.size());
+    return gulp.src(['app/assets/styles/boris.scss'])
+        .pipe($.rubySass({
+            style: 'expanded',
+            loadPath: 'app/assets/bower_components',
+            precision: 10
+        }))
+        .pipe($.autoprefixer('last 1 version'))
+        .pipe(gulp.dest('public/assets/styles'))
+        .pipe($.size());
 });
 
 gulp.task('scripts-back', function () {
-  gulp.src(scriptsPaths.user)
-    .pipe($.concat('main.js'))
-    .pipe(gulp.dest('public/assets/scripts'));
+    gulp.src(scriptsPaths.user)
+        .pipe($.concat('main.js'))
+        .pipe(gulp.dest('public/assets/scripts'));
 });
 
 gulp.task('scripts', function () {
     gulp.src(scriptsPaths.userFront)
-        .pipe($.concat('boris.js'))
+        .pipe($.concat('main.js'))
         .pipe(gulp.dest('public/assets/scripts'));
 });
 
+gulp.task('scripts-front-libs', function () {
+    gulp.src(scriptsPaths.libs)
+        .pipe(gulp.dest('app/assets/scripts/libs'));
+    gulp.src(scriptsPaths.libs)
+        .pipe(gulp.dest('public/assets/scripts/libs'));
+});
+
+gulp.task('scripts-front', function () {
+    gulp.src(scriptsPaths.userFront)
+        .pipe(gulp.dest('public/assets/scripts/frontend'));
+});
+
 gulp.task('scripts-build-vendor', function () {
-  return gulp.src(scriptsPaths.vendor)
-    .pipe($.uglify())
-    .pipe($.concat('vendor.js'))
-    .pipe(gulp.dest('public/assets/scripts'));
+    return gulp.src(scriptsPaths.vendor)
+        .pipe($.uglify())
+        .pipe($.concat('vendor.js'))
+        .pipe(gulp.dest('public/assets/scripts'));
 });
 
 gulp.task('scripts-build', ['scripts-build-vendor'], function () {
-  return gulp.src(scriptsPaths.user)
-    .pipe($.uglify())
-    .pipe($.concat('main.js'))
-    .pipe(gulp.dest('public/assets/scripts'));
+    return gulp.src(scriptsPaths.user)
+        .pipe($.uglify())
+        .pipe($.concat('main.js'))
+        .pipe(gulp.dest('public/assets/scripts'));
 });
 
 gulp.task('images', function () {
@@ -81,27 +98,27 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-  return gulp.src([ 'app/assets/bower_components/foundation-icon-fonts/*',
-                    'app/assets/styles/fonts/**/*'])
-    .pipe($.filter('*.{eot,svg,ttf,woff,otf}'))
-    .pipe($.flatten())
-    .pipe(gulp.dest('public/assets/styles/fonts'))
-    .pipe($.size());
+    return gulp.src(['app/assets/bower_components/foundation-icon-fonts/*',
+        'app/assets/styles/fonts/**/*'])
+        .pipe($.filter('*.{eot,svg,ttf,woff,otf}'))
+        .pipe($.flatten())
+        .pipe(gulp.dest('public/assets/styles/fonts'))
+        .pipe($.size());
 });
 
 gulp.task('ckeditor', function () {
-  return gulp.src('app/assets/bower_components/ckeditor/**/*')
-    .pipe(gulp.dest('public/assets/ckeditor'));
+    return gulp.src('app/assets/bower_components/ckeditor/**/*')
+        .pipe(gulp.dest('public/assets/ckeditor'));
 });
 
 gulp.task('clean', function () {
-  return gulp.src(['public/assets'], { read: false }).pipe($.clean());
+    return gulp.src(['public/assets'], {read: false}).pipe($.clean());
 });
 
 gulp.task('watch', ['clean', 'styles'], function () {
-  gulp.start('watch-process');
+    gulp.start('watch-process');
 });
-gulp.task('watch-process', [ 'scripts-build-vendor', 'scripts', 'images', 'fonts', 'ckeditor'],function () {
+gulp.task('watch-process', ['scripts-build-vendor', 'scripts', 'images', 'fonts', 'ckeditor'], function () {
     // watch for changes
     gulp.watch([
         'public/assets/styles/**/*.css',
@@ -119,14 +136,14 @@ gulp.task('watch-process', [ 'scripts-build-vendor', 'scripts', 'images', 'fonts
 
 
 gulp.task('build-process', ['scripts-build', 'images', 'fonts', 'ckeditor'], function () {
-  return gulp.src('public/assets/styles/main.css')
-    .pipe($.csso())
-    .pipe(gulp.dest('public/assets/styles'));
+    return gulp.src('public/assets/styles/main.css')
+        .pipe($.csso())
+        .pipe(gulp.dest('public/assets/styles'));
 });
-gulp.task('build', [ 'clean', 'styles' ], function () {
-  gulp.start('build-process');
+gulp.task('build', ['clean', 'styles'], function () {
+    gulp.start('build-process');
 });
 
 gulp.task('default', function () {
-  gulp.start('build');
+    gulp.start('build');
 });

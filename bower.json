@@ -4,8 +4,10 @@
     "dependencies": {
         "modernizr": "^2.8.*",
         "jquery": "^2.1.0",
-        "underscore": "^1.6.0",
+        "lodash": "^2.4.1",
         "backbone": "^1.1.0",
+        "requirejs": "~2.1.10",
+        "requirejs-text": "~2.0.10",
         "foundation": "^5.3.3",
         "foundation-icon-fonts": "*",
         "ckeditor": "^4.*"
