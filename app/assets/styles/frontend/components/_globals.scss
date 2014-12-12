@@ -1,0 +1,36 @@
+.section-heading-ssf {
+  font-family: $font-family-sans-serif;
+  font-size: rem-calc(20);
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.section-heading-sf {
+  font-family: $font-family-serif;
+  font-size: rem-calc(22);
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: none;
+}
+
+.menu-secondary-typo {
+  font-family: $font-family-sans-serif;
+  font-size: rem-calc(11);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.copy-typo {
+  padding: 0 100px 0;
+  font-family: $font-family-sans-serif;
+  font-size: rem-calc(11);
+}
+
+.v-rule {
+  width: 2px;
+  background-color: $iron;
+  height: 25px;
+  display: block;
+  margin: rem-calc(20) auto;
+}

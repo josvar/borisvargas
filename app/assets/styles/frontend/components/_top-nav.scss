@@ -1,0 +1,19 @@
+.top-bar {
+  .left {
+    > li > a {
+      box-sizing: border-box;
+      text-transform: uppercase;
+    }
+
+    > li.active > a:after{
+      content: ' ';
+      display: block;
+      border-top: 1px solid;
+    }
+    > li > a:hover:after {
+      content: ' ';
+      display: block;
+      border-top: 1px solid;
+    }
+  }
+}

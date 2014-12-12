@@ -1,0 +1,39 @@
+// .follow va junto con row (no tocar margenes auto)
+.follow {
+  padding: 0;
+  text-align: center;
+}
+
+.f-header {
+  @extend .section-heading-ssf;
+  margin-top: 20px;
+  margin-bottom: 105px;
+}
+.f-socials {
+  > li {
+
+  }
+
+  @media #{$large-up} {
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  }
+}
+
+.f-social-name {
+  text-align: center;
+  font-family: Lato;
+  text-transform: uppercase;
+  color: $follow-color;
+  font-size: rem-calc(11);
+}
+
+.f-icon-social {
+  color: $base;
+  font-size: 38px;
+  &::before {
+    display: block;
+  }
+}
