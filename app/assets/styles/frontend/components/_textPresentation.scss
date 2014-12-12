@@ -1,0 +1,25 @@
+.text_presentation {
+  padding: 25px 0;
+  > p {
+    text-align: center;
+    padding:  0 20px 0;
+
+    @media #{$medium-only} {
+      padding: 0 100px 0;
+    }
+
+    @media #{$large-up} {
+      padding: 0 200px 0;
+    }
+  }
+}
+
+.text_presentation-hr{
+  margin-left: auto;
+  margin-right: auto;
+  width: rem-calc(30);
+}
+
+.text_presentation-vr {
+  @extend .v-rule;
+}

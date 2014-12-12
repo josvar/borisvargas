@@ -1,0 +1,19 @@
+.l-footer {
+  width: 100%;
+  margin: 0;
+  padding: 30px 0 30px;
+}
+
+.l-footer-social {
+  background-color: $secondary-color;
+  @media #{$medium-only} {
+    padding-bottom: 50px;
+  }
+  @media #{$large-up} {
+    padding-bottom: 80px;
+  }
+}
+
+.l-footer-slogan {
+  background-color: $primary-color;
+}

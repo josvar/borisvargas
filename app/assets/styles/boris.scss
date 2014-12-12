@@ -1,139 +1,45 @@
-@import "partials-front/fonts";
-@import "partials-front/color";
-@import "settings-boris";
-@import "foundation/scss/foundation";
-@import "partials-front/grid";
-@import "partials-front/contact";
-@import "partials-front/home";
-@import "partials-front/service";
-@import "partials-front/about";
-@import "partials-front/work";
+@import "frontend/utils/config";
+@import "frontend/base/base";
 
-body {
-  @media #{$medium-up} {
-    padding-top: 100px;
-  }
+//@import "foundation/scss/foundation";
+@import
+//   "foundation/scss/foundation/components/accordion",
+//   "foundation/scss/foundation/components/alert-boxes",
+   "foundation/scss/foundation/components/block-grid",
+//   "foundation/scss/foundation/components/breadcrumbs",
+//   "foundation/scss/foundation/components/button-groups",
+//   "foundation/scss/foundation/components/buttons",
+//   "foundation/scss/foundation/components/clearing",
+//   "foundation/scss/foundation/components/dropdown",
+//   "foundation/scss/foundation/components/dropdown-buttons",
+//   "foundation/scss/foundation/components/flex-video",
+//   "foundation/scss/foundation/components/forms",
+   "foundation/scss/foundation/components/grid",
+   "foundation/scss/foundation/components/inline-lists",
+//   "foundation/scss/foundation/components/joyride",
+//   "foundation/scss/foundation/components/keystrokes",
+//   "foundation/scss/foundation/components/labels",
+//   "foundation/scss/foundation/components/magellan",
+//   "foundation/scss/foundation/components/orbit",
+//   "foundation/scss/foundation/components/pagination",
+//   "foundation/scss/foundation/components/panels",
+//   "foundation/scss/foundation/components/pricing-tables",
+//   "foundation/scss/foundation/components/progress-bars",
+//   "foundation/scss/foundation/components/reveal",
+//   "foundation/scss/foundation/components/side-nav",
+//   "foundation/scss/foundation/components/split-buttons",
+//   "foundation/scss/foundation/components/sub-nav",
+//   "foundation/scss/foundation/components/switch",
+//   "foundation/scss/foundation/components/tables",
+//   "foundation/scss/foundation/components/tabs",
+//   "foundation/scss/foundation/components/thumbs",
+//   "foundation/scss/foundation/components/tooltips",
+   "foundation/scss/foundation/components/top-bar",
+   "foundation/scss/foundation/components/type"
+//   "foundation/scss/foundation/components/offcanvas",
+//   "foundation/scss/foundation/components/visibility"
+;
 
-}
+@import "frontend/layout/layout";
 
-.first-container {
-  padding-top: 30px;
-  margin-bottom: 30px;
-  @media #{$small-only} {
-  }
-}
-
-p.resume {
-  font-weight: 400;
-}
-
-.button {
-  text-transform: uppercase;
-}
-
-input, textarea {
-  font-weight: 900;
-  padding: 1rem;
-  text-transform: uppercase;
-}
-
-input[type="text"] {
-  padding: 1rem;
-  height: auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-}
-
-.title-huge {
-  font-size: rem-calc(60px);
-  line-height: 1;
-}
-
-// TOP NAV
-.contain-to-grid {
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  nav .left a {
-    text-transform: uppercase;
-  }
-  @media #{$small-only} {
-    border-bottom: 1px solid $salmon;
-    ul.left {
-      border-top: 1px solid $salmon;
-      padding-top: 20px;
-    }
-    ul li.left:not(:last-child) {
-      border-bottom: 1px solid $salmon;
-    }
-    ul li.right:not(:last-child) {
-      border-bottom: 1px solid $salmon;
-    }
-
-  }
-  @media #{$medium-up} {
-  }
-  padding: 0;
-  margin: 0;
-}
-
-.page {
-  @media #{$medium-up} {
-  }
-
-  .title-container {
-    margin-bottom: 20px;
-  }
-
-  @media #{$small-only}{
-    margin-top: 70px;
-    padding-top: 20px;
-  }
-  max-width: 100%;
-  h1 {
-
-  }
-  .container-footer {
-    background-color: #000000;
-    padding: 30px 0 15px 0;
-    .footer {
-      @include grid-row();
-      p {
-        font-size: rem-calc(12);
-        @media #{$medium-up} {
-          padding: 0 100px;
-        }
-        text-align: center;
-        color: #fff;
-      }
-    }
-  }
-  .body-container {
-    margin-bottom: 40px;
-  }
-}
-
-#preloader{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  overflow: hidden;
-  background-color: #fff;
-  .spinner {
-    display: block;
-    width: 60px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -15px;
-    margin-left: -30px;
-    background: url(/assets/images/preloader.gif) no-repeat center;
-    background-size: 60px;
-  }
-}
+@import "frontend/components/components";

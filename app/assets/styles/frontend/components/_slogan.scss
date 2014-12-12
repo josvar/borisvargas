@@ -1,0 +1,32 @@
+.slogan {
+  padding: 0;
+  text-align: center;
+
+  > hr {
+    margin: 0 auto rem-calc(15);
+    width: rem-calc(30);
+    color: $slogan-color;
+  }
+}
+
+.slogan-nav {
+  margin-bottom: rem-calc(10);
+  text-align: center;
+  >li {
+    float: none;
+    > a {
+      @extend .menu-secondary-typo;
+      color: $slogan-color;
+    }
+  }
+}
+
+.slogan-logo {
+  padding: 25px 0 0px;
+  margin-bottom: 25px;
+}
+
+.slogan-copy {
+  @extend .copy-typo;
+  color: $copy-color;
+}

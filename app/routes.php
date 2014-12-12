@@ -1,17 +1,5 @@
 <?php
 
-Route::group(['namespace' => 'Api'], function() {
-    Route::controller('api', 'FrontController');
-});
-
-Route::group(['namespace' => 'Frontend'], function() {
-    Route::get('/testeo', function(){
-        $a = View::make('frontend.partials.menu')->render();
-        return Response::json(array('html' => $a, 'code' => 'lince'));
-    });
-    Route::controller('/', 'FrontController');
-});
-
 # Route Group with Prefix to Backend
 $access_url = Config::get('chenka.app.access_url');
 Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
@@ -47,4 +35,16 @@ Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
         });
 
     });
+});
+
+Route::group(['namespace' => 'Api'], function() {
+    Route::controller('api', 'FrontController');
+});
+
+Route::group(['namespace' => 'Frontend'], function() {
+    Route::get('/testeo', function(){
+        $a = View::make('frontend.partials.menu')->render();
+        return Response::json(array('html' => $a, 'code' => 'lince'));
+    });
+    Route::controller('/', 'FrontController');
 });

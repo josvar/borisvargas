@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
     @section('styles')
     <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}"/>
+    <link rel="stylesheet" href="{{ elixir('styles/backend.css') }}"/>
     <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>
     @show
 

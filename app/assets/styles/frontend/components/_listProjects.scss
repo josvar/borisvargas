@@ -1,0 +1,33 @@
+.listProjects{
+  >li {
+
+  }
+}
+
+.lp-box {
+  > figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  .lp-icon {
+    font-size: 25px;
+    position: absolute;
+    top: 9px;
+    right: 18px;
+    color: $box-color;
+  }
+}
+
+.lp-name{
+  position: relative;
+  > h3 {
+    display: block;
+    line-height: 50px;
+    text-align: left;
+    background-color: $box-bg-color;
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: rem-calc(16);
+  }
+}
