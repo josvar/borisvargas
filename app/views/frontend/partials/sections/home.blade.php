@@ -1,6 +1,6 @@
  <div class="row text_presentation">
     <hr class="text_presentation-hr"/>
-    <p>We are Temply. We sell high-end, ready to print Indesign templates to agencies and designers.
+    <p class="text_presentation-p text_presentation-p-home">We are Temply. We sell high-end, ready to print Indesign templates to agencies and designers.
     Whether you're under a tight deadline, looking for inspiration,
     or just need a document with the legwork already done,
     we have the template for you.

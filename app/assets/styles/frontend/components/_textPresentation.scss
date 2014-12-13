@@ -1,17 +1,16 @@
 .text_presentation {
-  padding: 25px 0;
-  > p {
-    text-align: center;
-    padding:  0 20px 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
 
-    @media #{$medium-only} {
-      padding: 0 100px 0;
-    }
+.text_presentation-avatar {
+  text-align: center;
+  margin: 0 auto;
+}
 
-    @media #{$large-up} {
-      padding: 0 200px 0;
-    }
-  }
+.text_presentation-p {
+  padding: 0;
+  text-align: justify;
 }
 
 .text_presentation-hr{
@@ -22,4 +21,19 @@
 
 .text_presentation-vr {
   @extend .v-rule;
+}
+
+.text_presentation-contact {
+  padding-bottom: 15px;
+}
+
+.text_presentation-p-home {
+  padding:  0 20px 0;
+  @media #{$medium-only} {
+    padding: 0 100px 0;
+  }
+
+  @media #{$large-up} {
+    padding: 0 200px 0;
+  }
 }

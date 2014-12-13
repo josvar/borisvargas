@@ -1,18 +1,18 @@
-<div class="page about">
-    <div class="row first-container">
-        <div class="columns large-5">
-            <h1 class="title-huge">About me</h1>
-            <div class="row">
-                <div class="columns large-11">
-                    <p class="resume">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, amet animi delectus deleniti, dolore doloribus eum eveniet fugit ipsa laboriosam laborum nemo nulla, quasi quis repellendus sed similique voluptas? Assumenda?</p>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aliquam animi autem beatae debitis est, impedit iusto maiores minus nobis nostrum omnis perspiciatis quo veniam veritatis vitae. Libero, magni.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolorum magni praesentium quo! A ad beatae distinctio dolores ex, facere libero minus nulla numquam perspiciatis quas reiciendis sapiente soluta veritatis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dicta dignissimos fugiat harum impedit natus necessitatibus nemo praesentium quaerat temporibus? Consequuntur cum delectus eveniet facere mollitia nam nihil ut, voluptatem.</p>
-        </div>
+<div class="row">
+    <div class="columns large-6 large-centered text_presentation text_presentation-about">
+        <h1 class="section-heading-ssf text-center">Say Hello</h1>
+        <hr class="text_presentation-hr"/>
+        <div class="text_presentation-avatar"><img src="http://placehold.it/200x200" alt=""></div>
+        <div class="text_presentation-vr"></div>
+        <p class="text_presentation-p">We are Temply. We sell high-end, ready to print Indesign templates to agencies and designers.
+        Whether you're under a tight deadline, looking for inspiration,
+        or just need a document.
+        </p>
+        <p class="text_presentation-p">We are Temply. We sell high-end, ready to print Indesign templates to agencies and designers.
+        Whether you're under a tight deadline, looking for inspiration,
+        or just need a document with the legwork already done,
+        we have the template for you. Por just need a document with the legwork already done,
+        </p>
     </div>
 </div>
 
