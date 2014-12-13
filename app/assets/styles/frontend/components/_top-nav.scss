@@ -1,4 +1,7 @@
 .top-bar {
+  @media #{$small-only} {
+    text-align: center;
+  }
   .left {
     > li > a {
       box-sizing: border-box;
@@ -15,5 +18,16 @@
       display: block;
       border-top: 1px solid;
     }
+  }
+}
+
+
+
+// Posiblemente se cambie 
+.top-bar section.top-bar-section ul.left li .nav-link {
+  @media #{$medium-up} {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }

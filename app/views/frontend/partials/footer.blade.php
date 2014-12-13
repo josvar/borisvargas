@@ -33,7 +33,6 @@
             <li><a href="">Contact</a></li>
             </ul>
         </nav>
-        <hr/>
         <p class="slogan-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet, assumenda dicta distinctio dolorum eius enim eos eveniet in itaque laboriosam laborum nam non, provident rerum suscipit tenetur voluptatibus!</p>
     </div>
 </footer>

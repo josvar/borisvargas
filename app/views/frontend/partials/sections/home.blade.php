@@ -8,7 +8,7 @@
     <div class="text_presentation-vr"></div>
  </div>
 
-<ul class="row listProjects medium-block-grid-2 large-block-grid-3">
+<ul class="listProjects small-block-grid-1 medium-block-grid-2 large-block-grid-3">
     <li class="lp-box"><figure><a href="">
         <img src="http://placehold.it/600x400" alt="">
         <figcaption class="lp-name">

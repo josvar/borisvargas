@@ -10,7 +10,7 @@
 }
 
 .slogan-nav {
-  margin-bottom: rem-calc(10);
+  margin-bottom: rem-calc(25);
   text-align: center;
   >li {
     float: none;
@@ -26,7 +26,20 @@
   margin-bottom: 25px;
 }
 
+.copy-typo {
+  font-family: $font-family-sans-serif;
+  font-size: rem-calc(11);
+}
+
 .slogan-copy {
   @extend .copy-typo;
   color: $copy-color;
+
+  @media #{$medium-only} {
+    padding: 50px;
+  }
+
+  @media #{$large-up} {
+    padding: 0 100px 0;
+  }
 }

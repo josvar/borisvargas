@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="columns large-6 large-centered text_presentation text_presentation-about">
-        <h1 class="section-heading-ssf text-center">Say Hello</h1>
+    <div class="columns medium-6 medium-centered large-7 large-centered text_presentation text_presentation-about">
+        <h1 class="section-heading-ssf text-center">About me</h1>
         <hr class="text_presentation-hr"/>
         <div class="text_presentation-avatar"><img src="http://placehold.it/200x200" alt=""></div>
         <div class="text_presentation-vr"></div>

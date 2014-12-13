@@ -11,6 +11,8 @@ Boris' Portfolio
 
 @section('body')
 <div class="l-content" role="main">
+<div class="row"><div class="columns">
     @include('frontend.partials.sections.home')
+</div></div>
 </div>
 @stop
