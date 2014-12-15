@@ -1,0 +1,27 @@
+.preview_project {
+  padding-bottom: 30px;
+  padding-top: 75px;
+  height: 450px;
+  .section-heading-sf {
+    @media #{$medium-up} {
+      margin-bottom: 30px;
+    }
+  }
+
+  .preview_project-desc {
+
+    @media #{$medium-up} {
+      height: 150px;
+    }
+    overflow: hidden;
+  }
+}
+
+.preview_project-text {
+  @media #{$small-only} {
+    margin-bottom: 30px;
+  }
+}
+.preview_hr_list {
+  margin-bottom: 60px;
+}

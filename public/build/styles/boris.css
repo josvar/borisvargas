@@ -3360,7 +3360,7 @@ p {
   font-family: inherit;
   font-weight: normal;
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.35;
   margin-bottom: 1.25rem;
   text-rendering: optimizeLegibility; }
   p.lead {
@@ -3444,7 +3444,7 @@ code {
 /* Lists */
 ul, ol, dl {
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.35;
   margin-bottom: 1.25rem;
   list-style-position: outside;
   font-family: inherit; }
@@ -3517,7 +3517,7 @@ blockquote {
       color: #6f6f6f; }
 
 blockquote, blockquote p {
-  line-height: 1.6;
+  line-height: 1.35;
   color: #858585; }
 
 /* Microformats */
@@ -3912,6 +3912,9 @@ th.hide-for-touch {
 .l-about {
   padding-top: 40px; }
 
+.l-project {
+  padding-top: 30px; }
+
 .l-header {
   background-color: #f0f0f0;
   width: 100%; }
@@ -3937,6 +3940,26 @@ th.hide-for-touch {
     display: block;
     margin: 0 auto; }
 
+.preview_project {
+  padding-bottom: 30px;
+  padding-top: 75px;
+  height: 450px; }
+  @media only screen and (min-width:40.063em) {
+    .preview_project .section-heading-sf {
+      margin-bottom: 30px; } }
+  .preview_project .preview_project-desc {
+    overflow: hidden; }
+    @media only screen and (min-width:40.063em) {
+      .preview_project .preview_project-desc {
+        height: 150px; } }
+
+@media only screen and (max-width: 40em) {
+  .preview_project-text {
+    margin-bottom: 30px; } }
+
+.preview_hr_list {
+  margin-bottom: 60px; }
+
 .section-heading-ssf, .f-header {
   font-family: "Lato", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1.25rem;
@@ -3946,10 +3969,17 @@ th.hide-for-touch {
 
 .section-heading-sf {
   font-family: 'EB Garamond', Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: 5px;
+  font-size: 1.875rem;
+  font-weight: 500;
+  letter-spacing: 0px;
   text-transform: none; }
+
+.sub-heading {
+  font-family: "Lato", Helvetica, Roboto, Arial, sans-serif;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  color: #999999;
+  text-transform: uppercase; }
 
 .menu-secondary-typo, .slogan-nav > li > a {
   font-family: "Lato", Helvetica, Roboto, Arial, sans-serif;
@@ -3957,16 +3987,23 @@ th.hide-for-touch {
   font-weight: 700;
   text-transform: uppercase; }
 
-.copy-typo, .slogan-copy {
-  font-family: "Lato", Helvetica, Roboto, Arial, sans-serif;
-  font-size: 0.6875rem; }
-
 .v-rule, .text_presentation-vr {
   width: 2px;
   background-color: #CCCCCC;
   height: 25px;
   display: block;
   margin: 1.25rem auto; }
+
+.text_with_arrow {
+  font-family: 'EB Garamond', Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 700; }
+  .text_with_arrow > i {
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+    padding-left: 20px;
+    font-weight: 700; }
 
 @media only screen and (max-width: 40em) {
   .top-bar {
@@ -4021,6 +4058,12 @@ th.hide-for-touch {
   @media only screen and (min-width:64.063em) {
     .text_presentation-p-home {
       padding: 0 200px 0; } }
+
+.text_presentation-project {
+  padding-bottom: 0;
+  text-align: center; }
+  .text_presentation-project .text_presentation-p {
+    text-align: center; }
 
 .lp-box > figure {
   margin: 0;
@@ -4089,6 +4132,10 @@ th.hide-for-touch {
   padding: 25px 0 0px;
   margin-bottom: 25px; }
 
+.copy-typo, .slogan-copy {
+  font-family: "Lato", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 0.6875rem; }
+
 .slogan-copy {
   color: #999999; }
   @media only screen and (min-width:40.063em) and (max-width:64em) {
@@ -4100,3 +4147,68 @@ th.hide-for-touch {
 
 .contact_me .button {
   text-transform: uppercase; }
+
+.preview_project {
+  font-size: 0.875rem; }
+
+@media only screen and (min-width:40.063em) {
+  .preview_project-text {
+    padding-left: 35px; } }
+
+.preview_project-desc > p {
+  font-size: 0.875rem;
+  line-height: 1.4; }
+  @media only screen and (min-width:64.063em) {
+    .preview_project-desc > p {
+      padding-right: 50px; } }
+
+.preview_hr_list {
+  border-color: #b7b7b7;
+  border-width: 1px 0 0; }
+
+.project-img-wrap {
+  position: relative; }
+
+.project-img img {
+  padding-bottom: 10px; }
+
+.share-social-wrap {
+  color: #CCCCCC;
+  width: 35px;
+  padding: 0 5px 0;
+  position: absolute;
+  top: 0;
+  left: -90px;
+  z-index: 6; }
+
+.share-social-icons {
+  position: relative;
+  z-index: 8;
+  list-style: none;
+  font-size: 22px;
+  margin: 0;
+  text-align: center; }
+  .share-social-icons > li {
+    display: inline-block; }
+    .share-social-icons > li > a {
+      color: #CCCCCC; }
+      .share-social-icons > li > a:hover {
+        color: #444444; }
+
+.share-social-hr-top {
+  border-color: #CCCCCC;
+  margin: 0 4px 38px;
+  border-top-width: 1px; }
+
+.share-social-vertical-text {
+  z-index: 4;
+  position: absolute;
+  left: -56px;
+  font-size: 0.6875rem;
+  width: 150px;
+  text-transform: uppercase;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg); }
+  .share-social-vertical-text > i {
+    padding-left: 10px;
+    font-size: 30px; }

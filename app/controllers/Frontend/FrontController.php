@@ -9,6 +9,11 @@ class FrontController extends \BaseController {
 		return View::make('frontend.home');
 	}
 
+    public function getProject()
+    {
+        return View::make('frontend.project');
+    }
+
     public function getContact()
     {
         return View::make('frontend.contact');

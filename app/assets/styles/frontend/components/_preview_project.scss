@@ -1,0 +1,23 @@
+.preview_project {
+  font-size: rem-calc(14);
+}
+
+.preview_project-text {
+  @media #{$medium-up} {
+    padding-left: 35px;
+  }
+}
+.preview_project-desc {
+  > p {
+    font-size: rem-calc(14);
+    line-height: 1.4;
+    @media #{$large-up} {
+      padding-right: 50px;
+    }
+  }
+}
+
+.preview_hr_list {
+  border-color: $hr-preview;
+  border-width: 1px 0 0;
+}
