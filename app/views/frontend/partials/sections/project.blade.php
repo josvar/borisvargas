@@ -2,7 +2,7 @@
     <div class="columns medium-6 medium-centered large-6 large-centered">
         <div class="text_presentation text_presentation-project">
             <h3 class="sub-heading">Stationary</h3>
-            <h1 class="section-heading-sf">Visual Resume Template</h1>
+            <h1 class="text_presentation-title">Visual Resume Template</h1>
             <hr class="text_presentation-hr"/>
             <p class="text_presentation-p">We are Temply. We sell high-end, ready to print Indesign templates to agencies and designers.
             Whether you're under a tight deadline, looking for inspiration,

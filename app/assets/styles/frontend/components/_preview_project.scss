@@ -1,5 +1,28 @@
 .preview_project {
   font-size: rem-calc(14);
+
+  &-title {
+    >  a {
+      @extend .link-underline;
+      @extend .section-heading-sf;
+    }
+    @media #{$medium-up} {
+      margin-bottom: 30px;
+    }
+  }
+
+  &-desc {
+    @media #{$medium-up} {
+      margin-top: 30px;
+    }
+    > p {
+      font-size: rem-calc(14);
+      line-height: 1.4;
+      @media #{$large-up} {
+        padding-right: 50px;
+      }
+    }
+  }
 }
 
 .preview_project-text {

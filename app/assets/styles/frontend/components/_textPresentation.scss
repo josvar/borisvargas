@@ -1,6 +1,11 @@
 .text_presentation {
   padding-top: 25px;
   padding-bottom: 25px;
+
+  &-title {
+    @extend .section-heading-sf;
+  }
+
 }
 
 .text_presentation-avatar {

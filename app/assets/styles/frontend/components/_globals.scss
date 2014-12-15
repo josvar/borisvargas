@@ -42,6 +42,7 @@
   font-weight: 700;
   > i {
     line-height: 30px;
+    height: 30px;
     display: inline-block;
     vertical-align: middle;
     font-size: 30px;
@@ -49,3 +50,15 @@
     font-weight: 700;
   }
 }
+
+.link-transition {
+  transition: color 300ms,background-color 300ms,border 300ms,opacity 300ms;
+}
+.link-underline{
+  @extend .link-transition;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px $primary-color solid;
+  }
+}
+

@@ -12,13 +12,13 @@
     <div class="preview_project-thumb columns medium-6"><img src="http://placehold.it/600x400" alt=""></div>
     <div class="preview_project-text columns medium-6">
         <h3 class="sub-heading">Stationary</h3>
-        <h2 class="section-heading-sf">Visual Resume Template</h2>
+        <h2 class="preview_project-title"><a href="project" >Visual Resume Template</a></h2>
         <div class="preview_project-desc">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur cumque deserunt dolores enim eos
-            incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta!
+            incidunt neque non nulla,  odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta!
             Incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta!</p>
         </div>
-        <a class="text_with_arrow link-arrow" href="">Watch Project<i class="icon-arrow-right"></i></a>
+        <a class="text_with_arrow link-arrow" href="project">Watch Project<i class="icon-arrow-right"></i></a>
     </div>
 </div>
 <hr class="preview_hr_list"/>

@@ -3,9 +3,11 @@
         <h2 class="f-header">Follow me on</h2>
         <ul class="f-socials small-block-grid-2 medium-block-grid-3 large-block-grid-4">
             <li class="">
-                <div class="icon-behance f-icon-social"></div>
-                <div>-</div>
-                <a class="f-social-name" href="">Behance</a>
+                <a href="">
+                    <div class="icon-behance f-icon-social"></div>
+                        <div>-</div>
+                    <a class="f-social-name" href="">Behance</a>
+                </a>
             </li>
 
             <li class="">

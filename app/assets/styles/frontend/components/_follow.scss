@@ -11,7 +11,11 @@
 }
 .f-socials {
   > li {
-
+    >a {
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 
   @media #{$large-up} {
@@ -31,7 +35,7 @@
 }
 
 .f-icon-social {
-  color: $base;
+  color: $follow-color;
   font-size: 38px;
   &::before {
     display: block;

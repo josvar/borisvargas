@@ -15,8 +15,12 @@
   >li {
     float: none;
     > a {
+      @extend .link-underline;
       @extend .menu-secondary-typo;
       color: $slogan-color;
+      &:hover {
+        border-color: $slogan-color;
+      }
     }
   }
 }
