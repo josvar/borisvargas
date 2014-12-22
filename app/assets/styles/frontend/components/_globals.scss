@@ -62,3 +62,16 @@
   }
 }
 
+.link-arrow {
+  > i {
+    transition: 150ms padding ease-in;
+  }
+  &:hover {
+    color: scale_color($primary-color, $lightness: 30%);
+    > i {
+      transition: 100ms padding ease-in;
+      padding-left: 25px;
+    }
+  }
+}
+

@@ -11,7 +11,9 @@
     "foundation": "^5.3.3",
     "foundation-icon-fonts": "*",
     "ckeditor": "^4.*",
-    "backbone.radio": "~0.8.0"
+    "backbone.radio": "~0.8.0",
+    "hogan": "~3.0.2",
+    "layoutmanager": "~0.9.5"
   },
   "devDependencies": {}
 }

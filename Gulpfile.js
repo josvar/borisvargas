@@ -7,27 +7,28 @@ var del = require('del');
 // load plugins
 var $ = require('gulp-load-plugins')();
 
-
+var bowerDir = 'vendor/bower_components/';
 var config = {
     assetsDir: 'app/assets/',
     bowerDir: 'vendor/bower_components/',
-    frontDir: this.assetsDir + 'scripts/frontend/',
     buildDir: 'public/build/',
     cssOutput: 'public/assets/styles/',
-    fontOutput: this.cssOutput + 'fonts/',
+    fontOutput: 'public/assets/styles/fonts/',
     imagesOutput: 'public/assets/images/',
     libsOutput: 'public/assets/scripts/libs',
     scriptsFrontOutput: 'public/assets/scripts/frontend/',
     libs: [
-        this.bowerDir + 'fastclick/lib/fastclick.js',
-        this.bowerDir + 'jquery.cookie/jquery.cookie.js',
-        this.bowerDir + 'jquery-placeholder/jquery.placeholder.js',
-        this.bowerDir + 'foundation/js/foundation.min.js',
-        this.bowerDir + 'jquery/dist/jquery.js',
-        this.bowerDir + 'backbone/backbone.js',
-        this.bowerDir + 'lodash/dist/lodash.js',
-        this.bowerDir + 'backbone.radio/build/backbone.radio.js',
-        this.bowerDir + 'requirejs/require.js'
+        bowerDir + 'fastclick/lib/fastclick.js',
+        bowerDir + 'jquery.cookie/jquery.cookie.js',
+        bowerDir + 'jquery-placeholder/jquery.placeholder.js',
+        bowerDir + 'foundation/js/foundation.min.js',
+        bowerDir + 'jquery/dist/jquery.js',
+        bowerDir + 'backbone/backbone.js',
+        bowerDir + 'lodash/dist/lodash.js',
+        bowerDir + 'backbone.radio/build/backbone.radio.js',
+        bowerDir + 'hogan/web/builds/3.0.2/hogan-3.0.2.amd.js',
+        bowerDir + 'layoutmanager/backbone.layoutmanager.js',
+        bowerDir + 'requirejs/require.js'
     ],
     fonts: [
         this.bowerDir + 'foundation-icon-fonts/*',
@@ -63,7 +64,7 @@ gulp.task('styles-front', function () {
 gulp.task('scripts-init', function () {
     gulp.src(config.libs)
         .pipe(gulp.dest(config.assetsDir + 'scripts/libs/'));
-})
+});
 
 gulp.task('scripts-libs', function () {
     gulp.src(config.libs)
@@ -71,7 +72,7 @@ gulp.task('scripts-libs', function () {
 });
 
 gulp.task('scripts-front', function () {
-    gulp.src(config.frontDir + '**/*.js')
+    gulp.src(config.assetsDir + '/scripts/frontend/**/*.js')
         .pipe(gulp.dest(config.scriptsFrontOutput));
 });
 
@@ -117,13 +118,14 @@ gulp.task('version-back', ['styles-back'], function () {
 //});
 
 
-gulp.task('watch-front', ['version-front'], function () {
+gulp.task('watch-front', ['version-front', 'scripts-front'], function () {
     gulp.watch(config.assetsDir + 'styles/**/*.scss', ['version-front']);
-})
+    gulp.watch(config.assetsDir + 'scripts/**/*.js', ['scripts-front']);
+});
 
 gulp.task('watch-back', ['version-back'], function () {
     gulp.watch(config.assetsDir + 'styles/**/*.scss', ['version-back']);
-})
+});
 
 
 //gulp.task('default', function () {

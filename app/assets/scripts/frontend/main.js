@@ -2,19 +2,26 @@
 'use strict';
 
 require.config({
+    urlArgs: "v=" +  (new Date()).getTime(),
     shim: {},
     paths: {
         jquery: '../libs/jquery',
         backbone: '../libs/backbone',
         underscore: '../libs/lodash',
-        radio: '../libs/backbone.radio'
+        radio: '../libs/backbone.radio',
+        hogan: '../libs/hogan-3.0.2.amd',
+        layoutmanager: '../libs/backbone.layoutmanager'
     }
 });
 
 require([
     'app',
-    'modules/header/header'
-], function (App, Header) {
+    'modules/header/header',
+    'backbone',
+    'modules/presenter/presenter',
+    'modules/thumbs/thumbs'
+], function (App, Header, Backbone, presenter, thumbs) {
+
     //window.onpopstate = function (event) {
     //    Backbone.trigger('popstate', event);
     //};
@@ -24,22 +31,28 @@ require([
     //
     //Backbone.history.start({pushState: true});
 
-    Header.start();
+    //Layout.configure({});
+    //Header.start();
+    //
+    //var Backbone = require('backbone');
+    //var Router = Backbone.Router.extend({
+    //    routes: {
+    //        "": "showHome",
+    //        "about": "showAbout",
+    //        "work": "showWork",
+    //        "services": "showServices",
+    //        "contact": "showContact"
+    //    },
+    //    showAbout: function () {
+    //        App.command('set:active:header', 'about');
+    //    }
+    //});
+    //new Router();
+    //Backbone.history.start({pushState: true});
 
-    var Backbone = require('backbone');
-    var Router = Backbone.Router.extend({
-        routes: {
-            "": "showHome",
-            "about": "showAbout",
-            "work": "showWork",
-            "services": "showServices",
-            "contact": "showContact"
-        },
-        showAbout: function () {
-            App.command('set:active:header', 'about');
-        }
-    });
-    new Router();
-    Backbone.history.start({pushState: true});
+    presenter.start();
+    thumbs.start();
+    Backbone.history.start();
+
 
 });

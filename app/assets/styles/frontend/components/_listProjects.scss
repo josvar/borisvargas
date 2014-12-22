@@ -1,13 +1,33 @@
-.listProjects{
-  >li {
+.listProjects {
+  > li {
 
   }
 }
 
 .lp-box {
   > figure {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.33);
     margin: 0;
     padding: 0;
+  }
+  &-link {
+    >img {
+      opacity: 1;
+      transition: opacity .14s ease-out;
+    }
+    &:hover {
+      >img {
+        opacity: 0.8;
+      }
+      .lp-name {
+//        transition: 0.5s background-color linear;
+        background-color: $box-color;
+        > h3, .lp-icon {
+//          transition: 0.3s color ease-in;
+          color: $box-bg-color;
+        }
+      }
+    }
   }
 
   .lp-icon {
@@ -17,15 +37,27 @@
     right: 18px;
     color: $box-color;
   }
+
+  &.active {
+    .lp-name {
+      background-color: $box-color;
+      > h3 {
+        color: $box-bg-color;
+      }
+      .lp-icon {
+        color: $box-bg-color;
+      }
+    }
+  }
 }
 
-.lp-name{
+.lp-name {
   position: relative;
+  background-color: $box-bg-color;
   > h3 {
     display: block;
     line-height: 50px;
     text-align: left;
-    background-color: $box-bg-color;
     padding: 0 0 0 15px;
     margin: 0;
     font-size: rem-calc(16);
