@@ -1,7 +1,12 @@
 .preview_project {
-  padding-bottom: 30px;
-  padding-top: 75px;
-  height: 450px;
+
+  padding-bottom: 0;
+  padding-top: 10px;
+  @media #{$medium-up} {
+    padding-bottom: 30px;
+    padding-top: 75px;
+  }
+//  height: 450px;
 
   .preview_project-desc {
 
@@ -14,9 +19,14 @@
 
 .preview_project-text {
   @media #{$small-only} {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+    padding-top: 10px;
   }
 }
 .preview_hr_list {
-  margin-bottom: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  @media #{$medium-up} {
+    margin-bottom: 60px;
+  }
 }

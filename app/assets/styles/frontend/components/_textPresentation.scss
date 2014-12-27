@@ -10,7 +10,10 @@
 
 .text_presentation-avatar {
   text-align: center;
-  margin: 0 auto;
+  margin: 45px auto;
+  > img {
+    width: 200px;
+  }
 }
 
 .text_presentation-p {
@@ -33,6 +36,10 @@
 }
 
 .text_presentation-p-contact {
+  text-align: center;
+}
+
+.text_presentation-p-about {
   text-align: center;
 }
 

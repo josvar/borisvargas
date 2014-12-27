@@ -74,7 +74,7 @@ $header-font-color: $header-color-primary;
 //$paragraph-font-family: $font-family-serif;
 // $paragraph-font-weight: $font-weight-normal;
 $paragraph-font-size: 1.125rem;
-$paragraph-line-height: 1.35;
+$paragraph-line-height: 1.65;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
 // $paragraph-aside-line-height: 1.35;
@@ -158,16 +158,17 @@ $hr-margin: rem-calc(24);
 $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: transparent;
+$topbar-bg-color: $primary-color;
 $topbar-bg: $topbar-bg-color;
+$topbar-bg-medium-up: transparent;
 
 // Height and margin
 $topbar-height: rem-calc(20);
-// $topbar-margin-bottom: 0;
+$topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
-// $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-weight: normal;
+$topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: transparent;
@@ -180,19 +181,21 @@ $topbar-dropdown-bg: transparent;
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $nav-ppal-color;
-$topbar-link-color-hover: scale-color($nav-ppal-color, $lightness: -13%);
-$topbar-link-color-active: $nav-ppal-active-color;
-$topbar-link-color-active-hover: $nav-ppal-active-color;
+$topbar-link-color-hover: scale-color($nav-ppal-color, $lightness: 13%);
+$topbar-link-color-active: $secondary-color;
+$topbar-link-color-active-hover: $secondary-color;
 $topbar-link-weight: 700;
-$topbar-link-font-size: rem-calc(11);
+$topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size-medium-up: rem-calc(11);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: $charcoal;
-$topbar-link-bg-hover: $topbar-bg-color;
+$topbar-link-bg: $topbar-bg;
+$topbar-link-bg-medium-up: $topbar-bg-medium-up;
+$topbar-link-bg-color-hover: $topbar-bg-medium-up;
+$topbar-link-bg-hover: false;
 $topbar-link-bg-active: $topbar-bg-color;
 $topbar-link-bg-active-hover: $topbar-bg-color;
 $topbar-link-font-family: $font-family-sans-serif;
-// $topbar-link-text-transform: none;
+$topbar-link-text-transform: uppercase;
 $topbar-link-padding: ( $topbar-height / 1.5 );
 // $topbar-back-link-size: $h5-font-size;
 // $topbar-link-dropdown-padding: 20px;
@@ -207,19 +210,19 @@ $topbar-link-padding: ( $topbar-height / 1.5 );
 // $topbar-dropdown-label-bg: $oil;
 
 // Top menu icon styles
-// $topbar-menu-link-transform: uppercase;
+$topbar-menu-link-transform: uppercase;
 $topbar-menu-link-font-size: rem-calc(13);
-// $topbar-menu-link-weight: $font-weight-bold;
-$topbar-menu-link-color: $primary-color;
-$topbar-menu-icon-color: $primary-color;
-// $topbar-menu-link-color-toggled: $jumbo;
-// $topbar-menu-icon-color-toggled: $jumbo;
+$topbar-menu-link-weight: 700;
+$topbar-menu-link-color: $secondary-color;
+$topbar-menu-icon-color: $secondary-color;
+$topbar-menu-link-color-toggled: $secondary-color;
+$topbar-menu-icon-color-toggled: $secondary-color;
 
 // Transitions and breakpoint styles
-// $topbar-transition-speed: 300ms;
+$topbar-transition-speed: 300ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
 // $topbar-breakpoint: #{lower-bound($medium-range)}; // Change to 9999px for always mobile layout
-// $topbar-media-query: $medium-up;
+//$topbar-media-query: $medium-up;
 
 // Divider Styles
 //$topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%);
@@ -372,12 +375,12 @@ $button-font-family: $font-family-sans-serif;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: -20%;
+$button-function-factor: -40%;
 
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: scale_color($primary-color, $lightness: 20%);
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);

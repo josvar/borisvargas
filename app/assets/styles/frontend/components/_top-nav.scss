@@ -1,33 +1,444 @@
-.top-bar {
-  @media #{$small-only} {
-    text-align: center;
+/* Wrapped around .top-bar to contain to grid width */
+.contain-to-grid {
+  width: 100%;
+  background: $topbar-bg;
+
+  .top-bar { margin-bottom: $topbar-margin-bottom; }
+}
+
+.contain-to-grid{
+  @media #{$small-only}{
+    padding: 10px 5px 10px;
+    background-color: $primary-color;
   }
-  .left {
-    > li > a {
-      box-sizing: border-box;
-      text-transform: uppercase;
+
+
+  @media #{$medium-up}{
+    position: absolute;
+    padding: 40px 0;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+// Wrapped around .top-bar to make it stick to the top
+//.fixed {
+//  width: 100%;
+//  #{$default-float}: 0;
+//  position: fixed;
+//  top: 0;
+//  z-index: 99;
+//
+//  &.expanded:not(.top-bar) {
+//    overflow-y: auto;
+//    height: auto;
+//    width: 100%;
+//    max-height: 100%;
+//
+//    .title-area {
+//      position: fixed;
+//      width: 100%;
+//      z-index: 99;
+//    }
+//    // Ensure you can scroll the menu on small screens
+//    .top-bar-section {
+//      z-index: 98;
+//      margin-top: $topbar-height;
+//    }
+//  }
+//}
+
+.top-bar {
+  overflow: hidden;
+  height: $topbar-height;
+  line-height: $topbar-height;
+  position: relative;
+  background: $topbar-bg;
+  margin-bottom: $topbar-margin-bottom;
+
+  // Topbar Global list Styles
+  ul {
+    margin-bottom: 0;
+    list-style: none;
+  }
+  @media #{$small-only} {
+      text-align: center;
+  }
+  ul.right {
+    object {
+      height: 11px;
+    }
+  }
+
+  .row { max-width: none; }
+
+//  form,
+//  input { margin-bottom: 0; }
+//
+//  input {
+//    height: $topbar-input-height;
+//    padding-top: .35rem;
+//    padding-bottom: .35rem;
+//    font-size: $topbar-button-font-size;
+//  }
+
+//  .button, button {
+//    padding-top: .35rem + rem-calc(1);
+//    padding-bottom: .35rem + rem-calc(1);
+//    margin-bottom: 0;
+//    font-size: $topbar-button-font-size;
+//    // position: relative;
+//    // top: -1px;
+//
+//    // Corrects a slight misalignment when put next to an input field
+//    @media #{$small-only} {
+//      position: relative;
+//      top: -1px;
+//    }
+//  }
+
+  // Title Area
+  .title-area {
+    position: relative;
+    margin: 0;
+  }
+
+  .name {
+    height: $topbar-height;
+    margin: 0;
+    font-size: $rem-base;
+
+    h1, h2, h3, h4, p, span {
+      line-height: $topbar-height;
+      font-size: $topbar-title-font-size;
+      margin: 0;
+      a {
+        font-weight: $topbar-title-weight;
+        color: $topbar-link-color;
+        width: 75%;
+        display: block;
+        padding: 0 $topbar-link-padding;
+      }
+    }
+  }
+
+  // Menu toggle button on small devices
+  .toggle-topbar {
+    position: absolute;
+    #{$opposite-direction}: 0;
+    top: 0;
+
+    a {
+      color: $topbar-link-color;
+      text-transform: $topbar-menu-link-transform;
+      font-size: $topbar-menu-link-font-size;
+      font-weight: $topbar-menu-link-weight;
+      position: relative;
+      display: block;
+      padding: 0 $topbar-link-padding;
+      height: $topbar-height;
+      line-height: $topbar-height;
     }
 
-    > li.active > a:after{
-      content: ' ';
-      display: block;
-      border-top: 1px solid;
+    // Adding the class "menu-icon" will add the 3-line icon people love and adore.
+    &.menu-icon {
+      top: 50%;
+      margin-top: -16px;
+
+      a {
+        @if $text-direction == rtl {
+          text-indent: -58px;
+        }
+        height: 34px;
+        line-height: 33px;
+        padding: 0 $topbar-link-padding+rem-calc(25) 0 $topbar-link-padding;
+        color: $topbar-menu-link-color;
+        position: relative;
+
+        & {
+          // @include hamburger icon
+          //
+          // We use this to create the icon with three lines aka the hamburger icon, the menu-icon or the navicon
+          // $width - Width of hamburger icon
+          // $left - If false, icon will be centered horizontally || explicitly set value in rem
+          // $top - If false, icon will be centered vertically || explicitly set value in rem
+          // $thickness - thickness of lines in hamburger icon, set value in px
+          // $gap - spacing between the lines in hamburger icon, set value in px
+          // $color - icon color
+          // $hover-color - icon color during hover, here it isn't set b/c it would override $topbar-menu-icon-color-toggled
+          // $offcanvas - Set to false of @include in topbar
+          @include hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, "", false);
+        }
+      }
     }
-    > li > a:hover:after {
-      content: ' ';
-      display: block;
-      border-top: 1px solid;
+  }
+
+  // Change things up when the top-bar is expanded
+  &.expanded {
+    height: auto;
+    background: transparent;
+
+    .title-area { background: $topbar-bg; }
+
+    .toggle-topbar {
+      a { color: $topbar-menu-link-color-toggled;
+        span::after {
+          // Shh, don't tell, but box-shadows create the menu icon :)
+          // Change the color of the bars when the menu is expanded, using given thickness from hamburger() above
+          box-shadow: 0 0 0 1px $topbar-menu-icon-color-toggled,
+          0 7px 0 1px $topbar-menu-icon-color-toggled,
+          0 14px 0 1px $topbar-menu-icon-color-toggled;
+        }
+      }
     }
   }
 }
 
+// Right and Left Navigation that stacked by default
+.top-bar-section {
+  #{$default-float}: 0;
+  position: relative;
+  width: auto;
+  @include single-transition($default-float, $topbar-transition-speed);
+
+  ul {
+    padding: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    font-size: $rem-base;
+    margin: 0;
+  }
+
+  .divider,
+  [role="separator"] {
+    border-top: $topbar-divider-border-top;
+    clear: both;
+    height: 1px;
+    width: 100%;
+  }
+
+  ul li {
+    background: $topbar-dropdown-bg;
+    & > a {
+      display: block;
+      width: 100%;
+      color: $topbar-link-color;
+      padding: 8px 0 8px 0;
+//      padding-#{$default-float}: $topbar-link-padding;
+      font-family: $topbar-link-font-family;
+      font-size: $topbar-link-font-size;
+      font-weight: $topbar-link-weight;
+      text-transform: $topbar-link-text-transform;
+
+//      &.button {
+//        font-size: $topbar-link-font-size;
+//        padding-#{$opposite-direction}: $topbar-link-padding;
+//        padding-#{$default-float}: $topbar-link-padding;
+//        @include button-style($bg:$primary-color);
+//      }
+//      &.button.secondary { @include button-style($bg:$secondary-color); }
+//      &.button.success { @include button-style($bg:$success-color); }
+//      &.button.alert { @include button-style($bg:$alert-color); }
+//      &.button.warning { @include button-style($bg:$warning-color); }
+    }
+
+    > button {
+      font-size: $topbar-link-font-size;
+      padding-#{$opposite-direction}: $topbar-link-padding;
+      padding-#{$default-float}: $topbar-link-padding;
+      @include button-style($bg:$primary-color);
+
+      &.secondary { @include button-style($bg:$secondary-color); }
+      &.success { @include button-style($bg:$success-color); }
+      &.alert { @include button-style($bg:$alert-color); }
+      &.warning { @include button-style($bg:$warning-color); }
+    }
+
+    // Apply the hover link color when it has that class
+    &:hover:not(.has-form) > a {
+      background-color: $topbar-link-bg-color-hover;
+      @if ($topbar-link-bg-hover) {
+        background: $topbar-link-bg-hover;
+      }
+      color: $topbar-link-color-hover;
+    }
+
+    // Apply the active link color when it has that class
+    &.active > a {
+      background: $topbar-link-bg-active;
+      color: $topbar-link-color-active;
+      &:hover {
+        background: $topbar-link-bg-active-hover;
+        color: $topbar-link-color-active-hover;
+      }
+    }
+  }
+//
+//  // Add some extra padding for list items contains buttons
+//  .has-form { padding: $topbar-link-padding; }
+
+}
+
+.js-generated { display: block; }
 
 
-// Posiblemente se cambie
-//.top-bar section.top-bar-section ul.left li .nav-link {
-//  @media #{$medium-up} {
-//    line-height: 20px;
-//    padding-top: 10px;
-//    padding-bottom: 10px;
+// Top Bar styles intended for screen sizes above the breakpoint.
+@media #{$medium-up} {
+  .contain-to-grid {
+    background-color: $topbar-bg-medium-up;
+  }
+  .top-bar {
+    background: $topbar-bg-medium-up;
+    @include clearfix;
+    overflow: visible;
+
+    .toggle-topbar { display: none; }
+
+    .title-area { float: $default-float; }
+    .name h1 a { width: auto; }
+
+//    input,
+//    .button,
+//    button {
+//      font-size: rem-calc(14);
+//      position: relative;
+//      height: $topbar-input-height;
+//      top: (($topbar-height - $topbar-input-height) / 2);
+//    }
+
+    &.expanded { background: $topbar-bg-medium-up; }
+  }
+
+  .contain-to-grid .top-bar {
+    max-width: $row-width;
+    margin: 0 auto;
+    margin-bottom: $topbar-margin-bottom;
+  }
+
+  .top-bar-section {
+    @include single-transition(none,0,0);
+    #{$default-float}: 0 !important;
+
+    ul {
+      width: auto;
+      height: auto !important;
+      display: inline;
+
+      li {
+        float: $default-float;
+        .js-generated { display: none; }
+      }
+    }
+
+    li {
+//      &.hover {
+//        > a:not(.button) {
+//          background-color: $topbar-link-bg-color-hover;
+//          @if ($topbar-link-bg-hover) {
+//            background: $topbar-link-bg-hover;
+//          }
+//          color: $topbar-link-color-hover;
+//        }
+//      }
+
+      &:not(.has-form) {
+        a:not(.button) {
+          font-size: $topbar-link-font-size-medium-up;
+          padding: 0 $topbar-link-padding;
+          line-height: $topbar-height;
+          background: $topbar-link-bg-medium-up;
+        }
+      }
+      &:not(.has-form) {
+        a:not(.button):not(.topbar-social-link) {
+          &:after {
+            content: ' ';
+            display: block;
+            border-top: 1px solid transparent;
+            transition: color 300ms,background-color 300ms,border 300ms,opacity 300ms;
+          }
+          &:hover:after {
+            border-color: scale-color($nav-ppal-color-medium-up, $lightness: -20%);
+          }
+          &:hover {
+            transition: color 300ms,background-color 300ms,border 300ms,opacity 300ms;
+            color: scale-color($nav-ppal-color-medium-up, $lightness: -20%);
+            background-color: $topbar-link-bg-color-hover;
+            @if ($topbar-link-bg-hover) {
+              background: $topbar-link-bg-hover;
+            }
+          }
+        }
+      }
+      &.active:not(.has-form) {
+        a:not(.button) {
+          padding: 0 $topbar-link-padding;
+          line-height: $topbar-height;
+          color: $nav-ppal-active-color-medium-up;
+          background: transparent;
+          &:hover {
+            background: transparent;
+            color: $nav-ppal-active-color-medium-up;
+          }
+          &:after{
+            content: ' ';
+            display: block;
+            border-top: 1px solid;
+          }
+
+        }
+      }
+    }
+
+    & > ul > .divider,
+    & > ul > [role="separator"] {
+      border-bottom: none;
+      border-top: none;
+      border-#{$opposite-direction}: $topbar-divider-border-bottom;
+      clear: none;
+      height: $topbar-height;
+      width: 0;
+    }
+
+    // Position overrides for ul.right and ul.left
+//    .#{$opposite-direction} {
+//      li .dropdown {
+//        #{$default-float}: auto;
+//        #{$opposite-direction}: 0;
+//
+//        li .dropdown { #{$opposite-direction}: 100%; }
+//      }
+//    }
+//    .#{$default-float} {
+//      li .dropdown {
+//        #{$opposite-direction}: auto;
+//        #{$default-float}: 0;
+//
+//        li .dropdown { #{$default-float}: 100%; }
+//      }
+//    }
+  }
+
+//  Degrade gracefully when Javascript is disabled. Displays dropdown and changes
+//  background & text color on hover.
+//  .no-js .top-bar-section {
+//    ul li {
+//      // Apply the hover link color when it has that class
+//      &:hover > a {
+//        background-color: $topbar-bg-medium-up;
+//        @if ($topbar-link-bg-hover) {
+//          background: $topbar-link-bg-hover;
+//        }
+//        color: scale-color($nav-ppal-color, $lightness: -20%);
+//      }
+//
+//      // Apply the active link color when it has that class
+//      &:active > a {
+//        background: $topbar-link-bg-active;
+//        color: $topbar-link-color-active;
+//      }
+//    }
 //  }
-//}
+}

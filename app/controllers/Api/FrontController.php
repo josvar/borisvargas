@@ -23,7 +23,7 @@ class FrontController extends \BaseController {
     public function getPreview($id)
     {
         $title = 'Project Version: ' . $id;
-        $img = asset('assets/images/thumb-cv.jpg');
+        $img = asset('assets/images/projects/ex1.jpg');
         $desc = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur cumque deserunt dolores enim eos incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta! Incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta!';
 
         return Response::json(array(

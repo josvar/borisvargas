@@ -7,22 +7,38 @@
 .f-header {
   @extend .section-heading-ssf;
   margin-top: 20px;
-  margin-bottom: 105px;
-}
-.f-socials {
-  > li {
-    >a {
-      &:hover {
-        color: $primary-color;
-      }
-    }
+  margin-bottom: 70px;
+  @media #{$medium-up} {
+    margin-bottom: 105px;
   }
-
+}
+.f-social {
   @media #{$large-up} {
     > li {
       float: none;
       display: inline-block;
     }
+  }
+}
+
+.f-social-hr {
+  width: rem-calc(8);
+  margin: 9px auto 21px;
+}
+
+.f-social-link {
+  display: inline-block;
+
+  &:hover {
+    & .f-social-icon, & .f-social-name {
+      color: $primary-color;
+    }
+    & .f-social-hr {
+      border-color: $primary-color;
+    }
+  }
+  & .f-social-icon, & .f-social-hr, & .f-social-name {
+    transition: color 300ms,background-color 300ms,border 300ms,opacity 300ms;
   }
 }
 
@@ -34,7 +50,7 @@
   font-size: rem-calc(11);
 }
 
-.f-icon-social {
+.f-social-icon {
   color: $follow-color;
   font-size: 38px;
   &::before {
