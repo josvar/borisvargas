@@ -2,7 +2,6 @@
 'use strict';
 
 require.config({
-    urlArgs: "bust=" + (new Date()).getTime(),
     shim: {},
     paths: {
         jquery: '../libs/jquery',
@@ -17,11 +16,19 @@ require.config({
 require([
     'app',
     'modules/header/header',
-    'backbone',
     'modules/presenter/presenter',
     'modules/thumbs/thumbs'
-], function (App, Header, Backbone, presenter, thumbs) {
+], function (App) {
 
+    require([
+        'modules/header/header',
+        'modules/presenter/presenter',
+        'modules/thumbs/thumbs'
+    ], function (Header, presenter, thumbs) {
+        presenter.start();
+        thumbs.start();
+        Backbone.history.start();
+    });
     //window.onpopstate = function (event) {
     //    Backbone.trigger('popstate', event);
     //};
@@ -49,10 +56,6 @@ require([
     //});
     //new Router();
     //Backbone.history.start({pushState: true});
-
-    presenter.start();
-    thumbs.start();
-    Backbone.history.start();
 
 
 });
