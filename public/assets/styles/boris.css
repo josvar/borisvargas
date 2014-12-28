@@ -3597,6 +3597,7 @@ th.hide-for-touch {
     z-index: 10; } }
 
 .top-bar {
+  transition: height 0.3s ease-in-out;
   overflow: hidden;
   height: 1.25rem;
   line-height: 1.25rem;
@@ -3666,7 +3667,7 @@ th.hide-for-touch {
         .top-bar .toggle-topbar.menu-icon a span:hover:after {
           box-shadow: 0 0 0 1px "", 0 7px 0 1px "", 0 14px 0 1px ""; }
   .top-bar.expanded {
-    height: auto;
+    height: 290px;
     background: transparent; }
     .top-bar.expanded .title-area {
       background: #444444; }

@@ -1,6 +1,6 @@
 <!-- contain-to-grid: layout for nav -->
 <div class="contain-to-grid">
-<nav class="top-bar expanded" data-topbar role="navigation">
+<nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area show-for-small-only">
         <li class="name"></li>
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->

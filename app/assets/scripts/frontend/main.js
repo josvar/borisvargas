@@ -25,6 +25,7 @@ require([
         'modules/presenter/presenter',
         'modules/thumbs/thumbs'
     ], function (Header, presenter, thumbs) {
+        Header.start();
         presenter.start();
         thumbs.start();
         Backbone.history.start();

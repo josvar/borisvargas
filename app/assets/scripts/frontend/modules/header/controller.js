@@ -6,16 +6,17 @@ define([
 
     var controller = {
         listHeader: function () {
-            //init views
-             this.headers_view = new View.list({
-                el: App.options.menu,
-                collection: new Collection()
-            });
-
-            //bind events
-            this.headers_view.on('childview:navigate', function () {
-
-            });
+            ////init views
+            // this.headers_view = new View.list({
+            //    el: App.options.menu,
+            //    collection: new Collection()
+            //});
+            //
+            ////bind events
+            //this.headers_view.on('childview:navigate', function () {
+            //
+            //});
+            //this.burger_view = new View.burger();
         },
         setActiveHeader: function (id) {
             this.headers_view.currentModel.deselect();

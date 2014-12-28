@@ -6,7 +6,6 @@ define(['app', './controller'], function (App, headerController) {
 
     Header.prototype = {
         start: function () {
-
             App.comply('set:active:header', function (id) {
                 this.controller.setActiveHeader(id);
             }, this);

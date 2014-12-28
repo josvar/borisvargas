@@ -50,6 +50,7 @@
 //}
 
 .top-bar {
+  transition: height .3s ease-in-out;
   overflow: hidden;
   height: $topbar-height;
   line-height: $topbar-height;
@@ -176,7 +177,8 @@
 
   // Change things up when the top-bar is expanded
   &.expanded {
-    height: auto;
+//    height: auto;
+    height: 290px;
     background: transparent;
 
     .title-area { background: $topbar-bg; }

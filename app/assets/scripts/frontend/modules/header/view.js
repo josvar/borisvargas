@@ -51,8 +51,18 @@ define([
         }
     });
 
+    var viewBurger = Backbone.View.extend({
+        el: $('.top-bar .toggle-topbar'),
+        events: {
+            "click": function () {
+                $('.top-bar').toggleClass('expanded');
+            }
+        }
+    });
+
     return {
         list: viewList,
-        item: viewItem
+        item: viewItem,
+        burger: viewBurger
     };
 })
