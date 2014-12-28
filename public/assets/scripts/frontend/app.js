@@ -33,6 +33,6 @@ define(function(require, exports, module) {
     exports.root = "/";
 
     app.start = function () {
-        console.log('start loco pistola!');
+
     }
 });
