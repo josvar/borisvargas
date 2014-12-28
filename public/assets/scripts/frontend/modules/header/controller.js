@@ -16,12 +16,12 @@ define([
             //this.headers_view.on('childview:navigate', function () {
             //
             //});
-            //this.burger_view = new View.burger();
+            this.burger_view = new View.burger();
         },
         setActiveHeader: function (id) {
-            this.headers_view.currentModel.deselect();
-            var newCurrent = this.headers_view.collection.get(id).select();
-            this.headers_view.currentModel = newCurrent;
+            //this.headers_view.currentModel.deselect();
+            //var newCurrent = this.headers_view.collection.get(id).select();
+            //this.headers_view.currentModel = newCurrent;
         }
     }
 
