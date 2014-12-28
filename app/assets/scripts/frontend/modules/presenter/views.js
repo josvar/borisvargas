@@ -1,7 +1,9 @@
 define([
+    'app',
     'backbone',
-    'underscore'
-], function (Backbone, _) {
+    'underscore',
+    'jquery'
+], function (App, Backbone, _, $) {
 
     var presenterLayout = new Backbone.Layout({
         el: $('#presenter')

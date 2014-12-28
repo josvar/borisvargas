@@ -21,6 +21,8 @@ require([
     'modules/thumbs/thumbs'
 ], function (App, Header, Backbone, presenter, thumbs) {
 
+
+    App.start();
     //window.onpopstate = function (event) {
     //    Backbone.trigger('popstate', event);
     //};
