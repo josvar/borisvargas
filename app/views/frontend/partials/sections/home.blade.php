@@ -1,11 +1,8 @@
 <script id="welcome-template" type="text/template">
     <div class="text_presentation row">
         <hr class="text_presentation-hr"/>
-        <p class="text_presentation-p text_presentation-p-home">We are Temply. We sell high-end, ready to print Indesign
-            templates to agencies and designers.
-            Whether you're under a tight deadline, looking for inspiration,
-            or just need a document with the legwork already done,
-            we have the template for you.
+        <p class="text_presentation-p text_presentation-p-home">
+            I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to print Indesign templates to agencies and designers.
         </p>
 
         <div class="text_presentation-vr"></div>
@@ -35,7 +32,9 @@
     <li class="lp-box" data-async="cv-awesome-v1">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex1-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex1-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -46,7 +45,9 @@
     <li class="lp-box" data-async="cv-awesome-v2">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex2-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex2-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -57,7 +58,9 @@
     <li class="lp-box" data-async="cv-awesome-v3">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex3-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex3-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -68,7 +71,9 @@
     <li class="lp-box" data-async="cv-awesome-v4">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex4-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex4-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -79,7 +84,9 @@
     <li class="lp-box" data-async="cv-awesome-v5">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex5-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex5-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -90,7 +97,9 @@
     <li class="lp-box" data-async="cv-awesome-v6">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex6-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex6-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -101,7 +110,9 @@
     <li class="lp-box" data-async="cv-awesome-v7">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex7-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex7-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>
@@ -112,7 +123,9 @@
     <li class="lp-box" data-async="cv-awesome-v8">
         <figure>
             <a class="lp-box-link" href="">
-                <img src="{{ asset('assets/images/projects/ex8-thumb.jpg') }}" alt="">
+                <div class="lp-box-img-wrapper">
+                    <img src="{{ asset('assets/images/projects/ex8-thumb.jpg') }}" alt="">
+                </div>
                 <figcaption class="lp-name">
                     <h3>Editorial Design V. 2</h3>
                     <span class="lp-icon icon-plus"></span>

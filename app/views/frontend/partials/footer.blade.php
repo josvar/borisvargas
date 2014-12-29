@@ -3,21 +3,21 @@
         <h2 class="f-header">Follow me on</h2>
         <ul class="f-social small-block-grid-3 medium-block-grid-3 large-block-grid-4">
             <li class="">
-                <a class="f-social-link" href="">
+                <a target="_blank" class="f-social-link" href="https://www.behance.net/BorisVargas">
                     <div class="icon-behance f-social-icon"></div>
                     <hr class="f-social-hr"/>
                     <div class="f-social-name">Behance</div>
                 </a>
             </li>
             <li class="">
-                <a class="f-social-link" href="">
+                <a target="_blank" class="f-social-link" href="https://www.facebook.com/BorisVargasDisenadorGraficoYWebFreelance">
                     <div class="icon-facebook f-social-icon"></div>
                     <hr class="f-social-hr"/>
                     <div class="f-social-name">Facebook</div>
                 </a>
             </li>
             <li class="">
-                <a class="f-social-link" href="">
+                <a target="" class="f-social-link" href="">
                     <div class="icon-instagram f-social-icon"></div>
                     <hr class="f-social-hr"/>
                     <div class="f-social-name">Instagram</div>
@@ -37,6 +37,6 @@
             <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-        <p class="slogan-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet, assumenda dicta distinctio dolorum eius enim eos eveniet in itaque laboriosam laborum nam non, provident rerum suscipit tenetur voluptatibus!</p>
+        <p class="slogan-copy">© 2009-2014 Boris Vargas. Made with love in Buenos Aires, Argentina.</p>
     </div></div>
 </footer>

@@ -11,12 +11,12 @@
     padding: 0;
   }
   &-link {
-    >img {
+    > .lp-box-img-wrapper {
       opacity: 1;
       transition: opacity .14s ease-out;
     }
     &:hover {
-      >img {
+      > .lp-box-img-wrapper {
         opacity: 0.8;
       }
       .lp-name {

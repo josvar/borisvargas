@@ -67,7 +67,18 @@
       text-align: center;
   }
   ul.right {
-    object {
+    @media #{$medium-up} {
+      a svg path {
+        transition: fill 300ms;
+      }
+      a:hover svg {
+        path{
+          fill: $nav-ppal-active-color-medium-up;
+        }
+      }
+    }
+    svg {
+      pointer-events: none;
       height: 11px;
     }
   }

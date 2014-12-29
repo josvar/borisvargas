@@ -3610,7 +3610,13 @@ th.hide-for-touch {
   @media only screen and (max-width: 40em) {
     .top-bar {
       text-align: center; } }
-  .top-bar ul.right object {
+  @media only screen and (min-width:40.063em) {
+    .top-bar ul.right a svg path {
+      transition: fill 300ms; }
+    .top-bar ul.right a:hover svg path {
+      fill: #5c5c5c; } }
+  .top-bar ul.right svg {
+    pointer-events: none;
     height: 11px; }
   .top-bar .row {
     max-width: none; }
@@ -3866,7 +3872,7 @@ th.hide-for-touch {
       padding: 0 100px 0; } }
   @media only screen and (min-width:64.063em) {
     .text_presentation-p-home {
-      padding: 0 200px 0; } }
+      padding: 0 230px 0; } }
 
 .text_presentation-project {
   padding-bottom: 0;
@@ -3877,10 +3883,10 @@ th.hide-for-touch {
 .lp-box > figure {
   margin: 0;
   padding: 0; }
-.lp-box-link > img {
+.lp-box-link > .lp-box-img-wrapper {
   opacity: 1;
   transition: opacity 0.14s ease-out; }
-.lp-box-link:hover > img {
+.lp-box-link:hover > .lp-box-img-wrapper {
   opacity: 0.8; }
 .lp-box-link:hover .lp-name {
   background-color: #444444; }
