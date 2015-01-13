@@ -40,23 +40,23 @@ Route::group(['namespace' => 'Api'], function() {
 });
 
 Route::group(['namespace' => 'Frontend'], function() {
-    Route::get('/seo', function(){
-//        $a = View::make('frontend.partials.menu')->render();
-//        return Response::json(array('html' => $a, 'code' => 'lince'));
-//        return time();
-//        return Str::slug('my %ass 78 por ^a');
-//        return public_path();
-
-        $a = Chenkacrud\Seo::find(2);
-        dd($a->data->getMetas());
-    });
-
-    Route::get('/proyecto', function ()
-    {
-        $a = Chenkacrud\Project::find(14);
-        dd($a->blocks->getBlocks());
-        //dd($a->seo->data->getMetas());
-    });
+//    Route::get('/seo', function(){
+////        $a = View::make('frontend.partials.menu')->render();
+////        return Response::json(array('html' => $a, 'code' => 'lince'));
+////        return time();
+////        return Str::slug('my %ass 78 por ^a');
+////        return public_path();
+//
+//        $a = Chenkacrud\Seo::find(2);
+//        dd($a->data->getMetas());
+//    });
+//
+//    Route::get('/proyecto', function ()
+//    {
+//        $a = Chenkacrud\Project::find(14);
+//        dd($a->blocks->getBlocks());
+//        //dd($a->seo->data->getMetas());
+//    });
 
     Route::controller('/', 'FrontController');
 });
