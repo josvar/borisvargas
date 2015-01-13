@@ -1,7 +1,7 @@
 <?php
 
-$user = User::find(1);
-Auth::login($user);
+//$user = User::find(1);
+//Auth::login($user);
 
 # Route Group with Prefix to Backend
 $access_url = Config::get('chenka.app.access_url');
