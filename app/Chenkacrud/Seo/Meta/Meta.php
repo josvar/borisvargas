@@ -1,8 +1,23 @@
 <?php namespace Chenkacrud\Seo\Meta;
 
+use Chenkacrud\Persistence\Serializable;
 use InvalidArgumentException;
 
-class Meta {
+class Meta implements Serializable {
+
+    static protected $acceptableMetasProperty = [
+        'description',
+        'og:title',
+        'og:description',
+        'og:type',
+        'og:image',
+        'twitter:card',
+        'twitter:site',
+        'twitter:title',
+        'twitter:description',
+        'twitter:image',
+        'twitter:url'
+    ];
 
     /**
      * @var array
@@ -16,8 +31,7 @@ class Meta {
      */
     function __construct(array $attributes = [])
     {
-        foreach ($attributes as $attr)
-            if ( ! is_string($attr)) throw new InvalidArgumentException();
+        $this->disallowInvalidMeta($attributes);
 
         $this->attributes = $attributes;
     }
@@ -28,5 +42,42 @@ class Meta {
     public function getAttributes()
     {
         return $this->attributes;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     */
+    function jsonSerialize()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    static public function hydrate($data)
+    {
+        return new self($data);
+    }
+
+    /**
+     * @param array $attributes
+     */
+    protected function disallowInvalidMeta(array $attributes)
+    {
+        foreach ($attributes as $attr => $value)
+        {
+            if (!is_string($value)) throw new InvalidArgumentException();
+
+            if (!in_array($attr, self::$acceptableMetasProperty))
+            {
+                throw new InvalidArgumentException();
+            }
+        }
     }
 }

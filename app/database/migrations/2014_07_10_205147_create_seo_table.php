@@ -15,8 +15,9 @@ class CreateSeoTable extends Migration {
 		Schema::create('seo', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('node_id');
+			$table->morphs('seoable');
             $table->longText('data');
+
 			$table->timestamps();
 		});
 	}

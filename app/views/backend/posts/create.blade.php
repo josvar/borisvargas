@@ -1,18 +1,18 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master_posts')
 
 @section('title')
-Posts | ChenkaCrud
+    Posts | ChenkaCrud
 @stop
 
 @section('title-box')
-<div class="columns">
-    <h2>Posts</h2>
-</div>
+    <div class="header">
+        <h2 class="header-title">Posts</h2>
+    </div>
 @stop
 
 @section('body-box')
-<div class="columns">
-    <div class="form-wrap ch-box">
+
+    <div class="ch-box">
         <!-- Form -->
         {{ Form::open(['route' => 'backend.posts.store']) }}
         <ul class="tabs header-tab-box" data-tab>
@@ -47,5 +47,4 @@ Posts | ChenkaCrud
         {{ Form::close() }}
     </div>
     <!-- end form-wrap-->
-</div>
 @stop

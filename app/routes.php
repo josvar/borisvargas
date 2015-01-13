@@ -1,5 +1,8 @@
 <?php
 
+$user = User::find(1);
+Auth::login($user);
+
 # Route Group with Prefix to Backend
 $access_url = Config::get('chenka.app.access_url');
 Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
@@ -13,13 +16,8 @@ Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
     # Backend Routes
     Route::get('/', ['as' => 'backend.dashboard', 'uses' => 'DashboardController@index']);
 
-    Route::get('node/{type}','NodeController@index');
-    Route::get('node/create/{type}', 'NodeController@create');
-    Route::post('node/{type}', 'NodeController@store');
-    Route::resource('node', 'PostsController', ['only' => ['edit', 'update', 'destroy'] ]);
-
-    Route::post('posts/{type}','PostsController@store');
-    Route::resource('posts', 'PostsController');
+    Route::resource('projects', 'ProjectsController', ['except' => ['show']]);
+    Route::resource('posts', 'PostsController', ['except' => ['show']]);
 
     Route::group(['prefix' => 'settings'], function ()
     {
@@ -42,9 +40,23 @@ Route::group(['namespace' => 'Api'], function() {
 });
 
 Route::group(['namespace' => 'Frontend'], function() {
-    Route::get('/testeo', function(){
-        $a = View::make('frontend.partials.menu')->render();
-        return Response::json(array('html' => $a, 'code' => 'lince'));
+    Route::get('/seo', function(){
+//        $a = View::make('frontend.partials.menu')->render();
+//        return Response::json(array('html' => $a, 'code' => 'lince'));
+//        return time();
+//        return Str::slug('my %ass 78 por ^a');
+//        return public_path();
+
+        $a = Chenkacrud\Seo::find(2);
+        dd($a->data->getMetas());
     });
+
+    Route::get('/proyecto', function ()
+    {
+        $a = Chenkacrud\Project::find(14);
+        dd($a->blocks->getBlocks());
+        //dd($a->seo->data->getMetas());
+    });
+
     Route::controller('/', 'FrontController');
 });

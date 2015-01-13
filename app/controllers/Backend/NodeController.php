@@ -1,12 +1,10 @@
-<?php
+<?php namespace Backend;
 
-use Chenkacrud\Nodes\MapperCommandTrait;
 use Laracasts\Commander\CommanderTrait;
 
 class NodeController extends \BaseController {
 
     use CommanderTrait;
-    use MapperCommandTrait;
 
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class NodeController extends \BaseController {
      */
     public function index($type)
     {
-        //
+        return $type;
     }
 
     /**
@@ -27,7 +25,7 @@ class NodeController extends \BaseController {
      */
     public function create($type)
     {
-        //
+        return $type;
     }
 
     /**

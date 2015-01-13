@@ -31,7 +31,9 @@ class SeoDataSpec extends ObjectBehavior {
         $metas->shouldHaveValue($meta2);
         $metas->shouldNotHaveValue($meta3);
     }
-    function it_should_not_allow_encode_without_title(Meta $meta) {
+
+    function it_should_not_allow_encode_without_title(Meta $meta)
+    {
         $titleParam = '';
         $attr = [
             'property' => 'og:title',
@@ -41,7 +43,7 @@ class SeoDataSpec extends ObjectBehavior {
 
         $this->addMeta($meta);
 
-        $this->shouldThrow('Chenkacrud\Seo\Exceptions\SeoWithoutTitleException')->duringEncode();
+        $this->shouldThrow('Chenkacrud\Seo\Exceptions\SeoWithoutTitleException')->duringJsonSerialize();
 
     }
 
@@ -50,13 +52,14 @@ class SeoDataSpec extends ObjectBehavior {
         $titleParam = 'mi title para one meta';
 
         $title->getTitle()->willReturn($titleParam);
+        $title->jsonSerialize()->willReturn($titleParam);
 
         $this->setTitle($title);
 
-        $dataEncoded = $this->encode();
-        $dataEncoded->shouldBeString();
+        $dataSerialized = $this->jsonSerialize();
+        $dataSerialized->shouldBeArray();
 
-        $hydrated = $this::hydrate($dataEncoded);
+        $hydrated = $this::hydrate($dataSerialized);
         $hydrated->shouldBeAnInstanceOf('Chenkacrud\Seo\SeoData');
         $hydrated->shouldHaveTitle($titleParam);
         $hydrated->shouldHaveMetas([]);
@@ -70,15 +73,18 @@ class SeoDataSpec extends ObjectBehavior {
             'content'  => 'mi titulo para one og'
         ];
         $title->getTitle()->willReturn($titleParam);
+        $title->jsonSerialize()->willReturn($titleParam);
+
         $meta->getAttributes()->willReturn($attr);
+        $meta->jsonSerialize()->willReturn($attr);
 
         $this->setTitle($title);
         $this->addMeta($meta);
 
-        $dataEncoded = $this->encode();
-        $dataEncoded->shouldBeString();
+        $data = $this->jsonSerialize();
+        $data->shouldBeArray();
 
-        $hydrated = $this::hydrate($dataEncoded);
+        $hydrated = $this::hydrate($data);
         $hydrated->shouldBeAnInstanceOf('Chenkacrud\Seo\SeoData');
         $hydrated->shouldHaveTitle($titleParam);
         $hydrated->shouldHaveMetas([$attr]);
@@ -104,19 +110,23 @@ class SeoDataSpec extends ObjectBehavior {
         ];
 
         $title->getTitle()->willReturn($titleParam);
+        $title->jsonSerialize()->willReturn($titleParam);
         $meta1->getAttributes()->willReturn($attr1);
+        $meta1->jsonSerialize()->willReturn($attr1);
         $meta2->getAttributes()->willReturn($attr2);
+        $meta2->jsonSerialize()->willReturn($attr2);
         $meta3->getAttributes()->willReturn($attr3);
+        $meta3->jsonSerialize()->willReturn($attr3);
 
         $this->setTitle($title);
         $this->addMeta($meta1);
         $this->addMeta($meta2);
         $this->addMeta($meta3);
 
-        $dataEncoded = $this->encode();
-        $dataEncoded->shouldBeString();
+        $data = $this->jsonSerialize();
+        $data->shouldBeArray();
 
-        $SeoHydrated = $SeoHydrated = $this::hydrate($dataEncoded);
+        $SeoHydrated = $SeoHydrated = $this::hydrate($data);
         $SeoHydrated->shouldBeAnInstanceOf('Chenkacrud\Seo\SeoData');
         $SeoHydrated->shouldHaveTitle($titleParam);
         $SeoHydrated->shouldHaveMetas([$attr1, $attr2, $attr3]);

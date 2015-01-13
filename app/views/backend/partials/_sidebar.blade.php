@@ -1,7 +1,7 @@
 <div id="admin-menu-wrap">
     <ul id="admin-menu">
         <li class="">
-            <a href="" class="menu-top" ng-href="/">
+            <a href="" class="menu-top">
                 <div class="menu-image"><i class="fi-home"></i></div>
                 <div class="menu-name">Dashboard</div>
             </a>
@@ -18,7 +18,7 @@
             </ul>
         </li>
         <li class="">
-            <a href="" class="menu-top" ng-href="/about">
+            <a href="" class="menu-top">
                 <div class="menu-image"><i class="fi-comments"></i></div>
                 <div class="menu-name">Comments</div>
             </a>

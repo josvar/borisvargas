@@ -2,6 +2,8 @@
 @import "fonts";
 @import "mixins";
 
+@import "foundation/scss/foundation/functions";
+
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: true;
 // $include-print-styles: true;

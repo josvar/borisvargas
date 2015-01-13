@@ -17,11 +17,12 @@ var config = {
     imagesOutput: 'public/assets/images/',
     libsOutput: 'public/assets/scripts/libs',
     scriptsFrontOutput: 'public/assets/scripts/frontend/',
+    scriptsBackOutput: 'public/assets/scripts/backend/',
     libs: [
         bowerDir + 'fastclick/lib/fastclick.js',
         bowerDir + 'jquery.cookie/jquery.cookie.js',
         bowerDir + 'jquery-placeholder/jquery.placeholder.js',
-        bowerDir + 'foundation/js/foundation.min.js',
+        bowerDir + 'foundation/js/foundation/*.js',
         bowerDir + 'jquery/dist/jquery.js',
         bowerDir + 'backbone/backbone.js',
         bowerDir + 'lodash/dist/lodash.js',
@@ -40,7 +41,7 @@ var config = {
 };
 
 gulp.task('styles-back', function () {
-    return gulp.src([config.assetsDir + 'styles/backend.scss'])
+    return gulp.src([config.assetsDir + 'styles/backend/backend.scss'])
         .pipe($.sass({
             style: 'nested',
             includePaths: [config.bowerDir],
@@ -51,7 +52,7 @@ gulp.task('styles-back', function () {
 });
 
 gulp.task('styles-front', function () {
-    return gulp.src([config.assetsDir + 'styles/boris.scss'])
+    return gulp.src([config.assetsDir + 'styles/frontend/boris.scss'])
         .pipe($.sass({
             outputStyle: 'nested',
             includePaths: [config.bowerDir],
@@ -76,6 +77,10 @@ gulp.task('scripts-front', function () {
         .pipe(gulp.dest(config.scriptsFrontOutput));
 });
 
+gulp.task('scripts-back', function () {
+    gulp.src(config.assetsDir + '/scripts/backend/**/*.js')
+        .pipe(gulp.dest(config.scriptsBackOutput));
+});
 
 gulp.task('images', function () {
     return gulp.src(config.images)
@@ -117,14 +122,12 @@ gulp.task('version-back', ['styles-back'], function () {
 //        .pipe(gulp.dest('public/assets/ckeditor'));
 //});
 
+gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-back'], function () {
+    gulp.watch(config.assetsDir + 'styles/frontend/**/*.scss', ['version-front']);
+    gulp.watch(config.assetsDir + 'styles/backend/**/*.scss', ['version-back']);
 
-gulp.task('watch-front', ['version-front', 'scripts-front'], function () {
-    gulp.watch(config.assetsDir + 'styles/**/*.scss', ['version-front']);
-    gulp.watch(config.assetsDir + 'scripts/**/*.js', ['scripts-front']);
-});
-
-gulp.task('watch-back', ['version-back'], function () {
-    gulp.watch(config.assetsDir + 'styles/**/*.scss', ['version-back']);
+    gulp.watch(config.assetsDir + 'scripts/frontend/**/*.js', ['scripts-front']);
+    gulp.watch(config.assetsDir + 'scripts/backend/**/*.js', ['scripts-back']);
 });
 
 

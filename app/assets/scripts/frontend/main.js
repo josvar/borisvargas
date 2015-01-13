@@ -14,10 +14,7 @@ require.config({
 });
 
 require([
-    'app',
-    'modules/header/header',
-    'modules/presenter/presenter',
-    'modules/thumbs/thumbs'
+    'app'
 ], function (App) {
 
     require([

@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html class=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>@yield('title', 'ChenkaCrud')</title>
@@ -15,67 +15,55 @@
 
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
     @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>
-    <link rel="stylesheet" href="{{ elixir('styles/backend.css') }}"/>
-    <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>
+        <link rel="stylesheet" href="{{ elixir('styles/backend.css') }}"/>
+        {{--    <script src="{{ asset('assets/scripts/vendor/modernizr.js') }}"></script>--}}
     @show
 
 </head>
 <body class="backend">
 
-<div class="ch-wrap">
+<div class="l-wrap">
     <div id="admin-menu-background"></div>
-    <div id="require-sidebar"></div>
-    <div class="ch-content">
-        @include('backend.partials._topbar')
-        <div class="ch-body">
-            <div class="title-section-row">
-
-                {{-- Aca van columnas --}}
-                @yield('title-box')
-
-            </div>
-            <div class="ch-box-row">
-
-                {{-- Aca van columnas o filas y columnas --}}
-                @yield('body-box', 'Content Body')
-
-            </div>
+    @include('backend.partials._sidebar')
+    @include('backend.partials._topbar')
+    <div class="l-content row">
+        <div class="columns">
+            {{-- Aca van columnas --}}
+            @yield('title-box')
+            {{-- Aca van columnas o filas y columnas --}}
+            @yield('body-box', 'Content Body')
         </div>
-        <div class="clear-both"></div>
     </div>
-    <div class="clear-both"></div>
-    <!-- end ch-content -->
+    <!-- end l-content -->
 </div>
-<!-- end ch-wrap-->
+<!-- end l-wrap-->
 
 
 @section('scripts')
-<script src="{{ asset('assets/scripts/vendor.js') }}"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] =
-            function () {
-                (b[l].q = b[l].q || []).push(arguments)
-            });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = '//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-</script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    @if (App::environment() == 'production')
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X');
+            ga('send', 'pageview');
+        </script>
+    @endif
 
-<script src="{{ asset('assets/scripts/main.js') }}"></script>
+    <script data-main="{{ asset('assets/scripts/backend/main') }}"
+            src="{{ asset('assets/scripts/libs/require.js') }}"></script>
 
-<script>
-    $(document).foundation();
-</script>
 @show
 </body>
 </html>

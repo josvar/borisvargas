@@ -5,7 +5,9 @@
     "license": "MIT",
     "require": {
         "laravel/framework": "4.2.*",
-        "laracasts/commander": "~1.0"
+        "laracasts/commander": "~1.0",
+        "guzzlehttp/guzzle": "~5.1",
+        "intervention/image": "~2.0"
     },
     "autoload": {
         "classmap": [

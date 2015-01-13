@@ -1,8 +1,9 @@
 <?php namespace Chenkacrud\Seo\Meta;
 
+use Chenkacrud\Persistence\Serializable;
 use InvalidArgumentException;
 
-class MetaTitle {
+class MetaTitle implements Serializable {
 
     /**
      * @var string
@@ -14,7 +15,7 @@ class MetaTitle {
      */
     function __construct($title)
     {
-        if ( ! is_string($title)) throw new InvalidArgumentException();
+        if (!is_string($title)) throw new InvalidArgumentException();
         $this->title = $title;
     }
 
@@ -27,10 +28,23 @@ class MetaTitle {
     }
 
     /**
-     * @return string
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
      */
-    public function toString()
+    function jsonSerialize()
     {
-        return (string) $this->title;
+        return $this->title;
+    }
+
+    /**
+     * @param $title
+     * @return mixed
+     */
+    static public function hydrate($title)
+    {
+        return new self($title);
     }
 }

@@ -1,13 +1,11 @@
 <?php namespace Backend;
 
-use Chenkacrud\Nodes\MapperCommandTrait;
 use View, Input, Response;
 use Laracasts\Commander\CommanderTrait;
 
 class PostsController extends BaseController {
 
     use CommanderTrait;
-    use MapperCommandTrait;
 
     /**
      * Display a listing of the resource.

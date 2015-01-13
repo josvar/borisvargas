@@ -1,25 +1,20 @@
 <?php namespace Chenkacrud\Seo;
 
+use Chenkacrud\Persistence\Serializable;
 use Chenkacrud\Seo\Exceptions\SeoWithoutTitleException;
 use Chenkacrud\Seo\Meta\Meta;
 use Chenkacrud\Seo\Meta\MetaTitle;
 
-class SeoData {
-
-    /**
-     * @var StrategyStore
-     */
-    protected $engineStore;
+class SeoData implements Serializable {
 
     /**
      * @var MetaTitle
      */
-    protected $title = null;
+    protected $title;
     protected $metas = array();
 
-    function __construct(StrategyStore $engine = null)
+    function __construct()
     {
-        $this->resolveEngineStrategy($engine);
     }
 
     /**
@@ -54,72 +49,46 @@ class SeoData {
         return $this->metas;
     }
 
-
     /**
-     * Si no un titulo seteado lanza expection
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
      * @throws SeoWithoutTitleException
-     * @return String
      */
-    public function encode()
+    function jsonSerialize()
     {
-        if( $this->title === null ) throw new SeoWithoutTitleException();
-        $dataToEncode = array();
-        $dataToEncode['title'] = $this->title->getTitle();
+        if ($this->title === null) throw new SeoWithoutTitleException();
 
-        $dataToEncode['metas'] = $this->getMetasToEncode();
+        $data = array();
+        $data['title'] = $this->title->jsonSerialize();
+        $data['metas'] = [];
 
-        return $this->engineStore->encode($dataToEncode);
-    }
-
-    /**
-     * @param $data
-     * @param StrategyStore $engine
-     * @return SeoData
-     */
-    static public function hydrate($data, StrategyStore $engine = null)
-    {
-        $seoData = new self();
-        $seoData->resolveEngineStrategy($engine);
-        $seoData->decode($data);
-
-        return $seoData;
-    }
-
-    /**
-     * @param $data
-     */
-    protected function decode($data)
-    {
-        $dataDecoded = $this->engineStore->decode($data);
-
-        $this->setTitle(new MetaTitle($dataDecoded['title']));
-
-        foreach ($dataDecoded['metas'] as $metaAttr)
-        {
-            $this->addMeta(new Meta($metaAttr));
-        }
-    }
-
-    /**
-     * @param StrategyStore $engine
-     */
-    protected function resolveEngineStrategy(StrategyStore $engine = null)
-    {
-        if ($engine === null)
-            $engine = new JsonStore();
-        $this->engineStore = $engine;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getMetasToEncode()
-    {
-        $metasToEncode = array();
         foreach ($this->metas as $meta)
         {
-            $metasToEncode[] = $meta->getAttributes();
+            $data['metas'][] = $meta->jsonSerialize();
         }
-        return $metasToEncode;
+
+        return $data;
+
     }
+
+    /**
+     * @param $data
+     * @return SeoData
+     */
+    static public function hydrate($data)
+    {
+        $seoDataObj = new self();
+
+        $seoDataObj->title = MetaTitle::hydrate($data['title']);
+        foreach ($data['metas'] as $meta)
+        {
+            $seoDataObj->addMeta(Meta::hydrate($meta));
+        }
+
+        return $seoDataObj;
+    }
+
 }

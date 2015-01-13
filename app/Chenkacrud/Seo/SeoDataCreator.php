@@ -18,33 +18,38 @@ class SeoDataCreator {
 
     /**
      * @param array $data
-     * @param BuilderInterface|null $builder
      * @return BuilderInterface
      */
-    public function create(array $data, BuilderInterface $builder = null)
+    public function make(array $data)
     {
-       if($builder === null )
-           $this->builder = $builder;
-
         $this->builder->buildSeoData();
 
-        //tododev: aca va el loop para agregar los meta y el title, viene desde un Input
+        //tododev: evaluar contenido de arrays
 
-        return $this->builder;
+        $this->builder->addTitle($data['title']);
+        $this->builder->addMeta(['description' => $data['description']]);
+
+        foreach ($data['og'] as $meta => $value)
+        {
+            $this->builder->addMeta([$meta => $value]);
+        }
+
+        foreach ($data['twitter'] as $meta => $value)
+        {
+            $this->builder->addMeta([$meta => $value]);
+        }
+
+        return $this->builder->getResult();
     }
 
     /**
-     * @param string $data
-     * @param BuilderInterface|null $builder
+     * @param array $data
      * @return BuilderInterface
      */
-    public function load($data, BuilderInterface $builder = null)
+    public function restore($data)
     {
-        if( $builder === null )
-            $this->builder = $builder;
-
         $this->builder->hydrate($data);
-        return $this->builder;
+        return $this->builder->getResult();
     }
 
 }

@@ -1,0 +1,27 @@
+/*
+|---------------------------------------------------------------------
+| Sidebar Menu
+|---------------------------------------------------------------------
+*/
+#admin-menu-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  @media #{$small-only} {
+    display: none;
+  }
+}
+
+#admin-menu-wrap {
+  z-index: 99;
+  position: fixed;
+  @media #{$small-only} {
+    display: none;
+  }
+}
+
+#admin-menu-background, #admin-menu-wrap, #admin-menu, #admin-menu .ch-submenu {
+  width: 160px;
+}

@@ -1,4 +1,5 @@
 <?php
 
-// tododev: archivo backend.scss sacar .ch-body form hacia un nuevo partial forms.
-// tododev: Ver si .form-wrap del archivo grid.scss se puede borrar o refractorizar. Si el parde del grid dejarlo ahi.
+// tododev: cuando regresar al home hacer un scroll to top
+// tododev: Resolver topbar en devices small y medium-up, en small el height tiene que ser 40-50px
+// tododev: Hacer responsive links share de la seccion project

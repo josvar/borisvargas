@@ -22,14 +22,16 @@ class FrontController extends \BaseController {
 
     public function getPreview($id)
     {
-        $title = 'Project Version: ' . $id;
-        $img = asset('assets/images/projects/ex1-thumb.jpg');
-        $desc = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur cumque deserunt dolores enim eos incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta! Incidunt neque non nulla, odio optio perferendis tempora veniam voluptate! Accusamus dolorum ipsa soluta!';
+        $title = 'Studio Brochure Template';
+        $type = 'Print templates';
+        $img = asset('assets/images/projects/ex' . $id . '-thumb.jpg');
+        $desc = 'This 24 page indesign A4 brochure template has been created with designers and agencies in mind.This template is a brochure with space to give a little extra information about your company, some facts and figures and also some infographics. All Files are print ready.';
 
         return Response::json(array(
-            'title'   => $title,
-            'img_src' => $img,
-            'desc'    => $desc
+            'title' => $title,
+            'type'  => $type,
+            'img'   => $img,
+            'desc'  => $desc
         ));
     }
 

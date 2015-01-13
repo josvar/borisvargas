@@ -121,7 +121,12 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-        'Laracasts\Commander\CommanderServiceProvider'
+        'Laracasts\Commander\CommanderServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
+
+		'Chenkacrud\Seo\SeoDataServiceProvider',
+		'Chenkacrud\Blocks\BlocksServiceProvider',
+		'Chenkacrud\ImageManager\ImageManagerServiceProvider'
 	),
 
 	/*
@@ -187,6 +192,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Image'           => 'Intervention\Image\Facades\Image'
 
 	),
 

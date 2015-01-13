@@ -2,7 +2,9 @@
     <div class="text_presentation row">
         <hr class="text_presentation-hr"/>
         <p class="text_presentation-p text_presentation-p-home">
-            I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to print Indesign templates to agencies and designers.
+            I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally
+            as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to
+            print Indesign templates to agencies and designers.
         </p>
 
         <div class="text_presentation-vr"></div>
@@ -11,9 +13,10 @@
 <script id="preview-template" type="text/template">
     <div class="preview_project row">
         <div class="preview_project-thumb columns medium-6">
-            <img src="<%= img_src %>" alt=""></div>
+            <img src="<%= img %>" alt=""/>
+        </div>
         <div class="preview_project-text columns medium-6">
-            <h3 class="sub-heading">Stationary</h3>
+            <h3 class="sub-heading"><%= type %></h3>
 
             <h2 class="preview_project-title"><a href="project"><%= title %></a></h2>
 
@@ -29,7 +32,7 @@
 </script>
 <div id="presenter"></div>
 <ul class="listProjects small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-    <li class="lp-box" data-async="cv-awesome-v1">
+    <li class="lp-box" data-async="1">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -42,7 +45,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v2">
+    <li class="lp-box" data-async="2">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -55,7 +58,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v3">
+    <li class="lp-box" data-async="3">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -68,7 +71,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v4">
+    <li class="lp-box" data-async="4">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -81,7 +84,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v5">
+    <li class="lp-box" data-async="5">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -94,7 +97,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v6">
+    <li class="lp-box" data-async="6">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -107,7 +110,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v7">
+    <li class="lp-box" data-async="7">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">
@@ -120,7 +123,7 @@
             </a>
         </figure>
     </li>
-    <li class="lp-box" data-async="cv-awesome-v8">
+    <li class="lp-box" data-async="8">
         <figure>
             <a class="lp-box-link" href="">
                 <div class="lp-box-img-wrapper">

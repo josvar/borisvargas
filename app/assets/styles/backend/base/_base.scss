@@ -1,0 +1,16 @@
+@import "foundation/scss/normalize";
+@import "typography";
+@import "settings";
+
+
+html {
+  background: $document-bg;
+  body {
+    background-color: transparent;
+    color: #444;
+  }
+}
+
+#admin-menu-background, #admin-menu-wrap, #admin-menu {
+  background-color: $menu-bg-color;
+}

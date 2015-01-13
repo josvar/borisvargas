@@ -5,15 +5,14 @@ use Chenkacrud\Seo\Meta\MetaTitle;
 
 class SeoDataBuilder implements BuilderInterface {
 
-    protected $engine;
     /**
      * @var SeoData
      */
-    protected $seoData = null;
+    protected $seoData;
 
     public function buildSeoData()
     {
-        $this->seoData = new SeoData(new JsonStore());
+        $this->seoData = new SeoData();
     }
 
     /**
@@ -21,7 +20,7 @@ class SeoDataBuilder implements BuilderInterface {
      */
     public function hydrate($data)
     {
-        $this->seoData = SeoData::hydrate($data, new JsonStore());
+        $this->seoData = SeoData::hydrate($data);
     }
 
     /**
