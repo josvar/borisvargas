@@ -26,12 +26,12 @@ class SeoDataBuilderSpec extends ObjectBehavior {
         $title = 'bar';
 
         $metaAttr1 = [
-            'mame'    => 'og:title',
-            'content' => 'bar to og'
+            'property' => 'og:title',
+            'content'  => 'bar to og'
         ];
         $metaAttr2 = [
-            'mame'    => 'og:description',
-            'content' => 'segundo meta'
+            'property' => 'og:description',
+            'content'  => 'segundo meta'
         ];
 
         $this->buildSeoData();

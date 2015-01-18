@@ -13,6 +13,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
+    <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
+
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
     @section('styles')
         <link rel="stylesheet" href="{{ elixir('styles/backend.css') }}"/>

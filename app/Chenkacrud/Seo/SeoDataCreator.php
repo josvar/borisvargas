@@ -27,16 +27,16 @@ class SeoDataCreator {
         //tododev: evaluar contenido de arrays
 
         $this->builder->addTitle($data['title']);
-        $this->builder->addMeta(['description' => $data['description']]);
+        $this->builder->addMeta(['name' => 'description', 'content' => $data['description']]);
 
         foreach ($data['og'] as $meta => $value)
         {
-            $this->builder->addMeta([$meta => $value]);
+            $this->builder->addMeta(['property' => $meta, 'content' => $value]);
         }
 
         foreach ($data['twitter'] as $meta => $value)
         {
-            $this->builder->addMeta([$meta => $value]);
+            $this->builder->addMeta(['name' => $meta, 'content' => $value]);
         }
 
         return $this->builder->getResult();

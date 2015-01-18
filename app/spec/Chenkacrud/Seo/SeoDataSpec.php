@@ -1,7 +1,7 @@
 <?php namespace spec\Chenkacrud\Seo;
 
 use Chenkacrud\Seo\Meta\Meta;
-use Chenkacrud\Seo\Meta\MetaTitle;
+use Chenkacrud\Seo\Meta\Title;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -12,11 +12,11 @@ class SeoDataSpec extends ObjectBehavior {
         $this->shouldHaveType('Chenkacrud\Seo\SeoData');
     }
 
-    function it_store_a_title(MetaTitle $title)
+    function it_store_a_title(Title $title)
     {
         $this->setTitle($title);
 
-        $this->getTitle()->shouldReturnAnInstanceOf('Chenkacrud\Seo\Meta\MetaTitle');
+        $this->getTitle()->shouldReturnAnInstanceOf('Chenkacrud\Seo\Meta\Title');
         $this->getTitle()->shouldReturn($title);
     }
 
@@ -47,7 +47,7 @@ class SeoDataSpec extends ObjectBehavior {
 
     }
 
-    function it_can_encode_and_hydrate_with_title_without_metas(MetaTitle $title)
+    function it_can_encode_and_hydrate_with_title_without_metas(Title $title)
     {
         $titleParam = 'mi title para one meta';
 
@@ -65,7 +65,7 @@ class SeoDataSpec extends ObjectBehavior {
         $hydrated->shouldHaveMetas([]);
     }
 
-    function it_can_encode_and_hydrate_with_title_and_one_meta(MetaTitle $title, Meta $meta)
+    function it_can_encode_and_hydrate_with_title_and_one_meta(Title $title, Meta $meta)
     {
         $titleParam = 'mi title para one meta';
         $attr = [
@@ -90,7 +90,7 @@ class SeoDataSpec extends ObjectBehavior {
         $hydrated->shouldHaveMetas([$attr]);
     }
 
-    function it_can_encode_and_hydrate_with_title_multiple_metas(MetaTitle $title, Meta $meta1, Meta $meta2, Meta $meta3)
+    function it_can_encode_and_hydrate_with_title_multiple_metas(Title $title, Meta $meta1, Meta $meta2, Meta $meta3)
     {
 
         $titleParam = 'mi title';

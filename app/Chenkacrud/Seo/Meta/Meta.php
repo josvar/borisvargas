@@ -72,12 +72,19 @@ class Meta implements Serializable {
     {
         foreach ($attributes as $attr => $value)
         {
-            if (!is_string($value)) throw new InvalidArgumentException();
+            if (!is_string($attr) || !(is_string($value)))
+                throw new InvalidArgumentException('It does not string');
 
-            if (!in_array($attr, self::$acceptableMetasProperty))
-            {
-                throw new InvalidArgumentException();
-            }
         }
+
+        ////tododev: refactor this
+        //if (!in_array($attributes['name'], self::$acceptableMetasProperty))
+        //{
+        //    throw new InvalidArgumentException('Seo property invalid');
+        //}
+        //if (!in_array($attributes['property'], self::$acceptableMetasProperty))
+        //{
+        //    throw new InvalidArgumentException('Seo property invalid');
+        //}
     }
 }

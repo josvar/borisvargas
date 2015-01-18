@@ -22,13 +22,11 @@ class ImageFactory {
         $driver->processImage($data['data']);
         $paths = $driver->getPaths();
 
-
         $obj = new Image();
         $obj->addName($data['name'])
             ->addAlt($data['alt'])
             ->addCaption($data['caption'])
             ->addPaths($paths);
-        dd($data);
 
         return $obj;
 

@@ -37,6 +37,7 @@ class ProjectsController extends BaseController {
      */
     public function store()
     {
+        //tododev: terminar esto
         $this->execute('Chenkacrud\Projects\PublishProjectCommand');
         try
         {

@@ -55,7 +55,12 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Laracasts\Commander\CommanderServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider'
+        'Way\Generators\GeneratorsServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
+
+        'Chenkacrud\Seo\SeoDataServiceProvider',
+        'Chenkacrud\Blocks\BlocksServiceProvider',
+        'Chenkacrud\Resources\ResourceManagerServiceProvider'
     )
 
 );

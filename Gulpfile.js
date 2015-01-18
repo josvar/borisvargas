@@ -29,7 +29,9 @@ var config = {
         bowerDir + 'backbone.radio/build/backbone.radio.js',
         bowerDir + 'hogan/web/builds/3.0.2/hogan-3.0.2.amd.js',
         bowerDir + 'layoutmanager/backbone.layoutmanager.js',
-        bowerDir + 'requirejs/require.js'
+        bowerDir + 'requirejs/require.js',
+        bowerDir + 'jquery-file-upload/js/jquery.iframe-transport.js',
+        bowerDir + 'jquery-file-upload/js/**/*'
     ],
     fonts: [
         this.bowerDir + 'foundation-icon-fonts/*',
@@ -78,7 +80,7 @@ gulp.task('scripts-front', function () {
 });
 
 gulp.task('scripts-back', function () {
-    gulp.src(config.assetsDir + '/scripts/backend/**/*.js')
+    gulp.src(config.assetsDir + '/scripts/backend/**/*')
         .pipe(gulp.dest(config.scriptsBackOutput));
 });
 
@@ -127,7 +129,7 @@ gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-b
     gulp.watch(config.assetsDir + 'styles/backend/**/*.scss', ['version-back']);
 
     gulp.watch(config.assetsDir + 'scripts/frontend/**/*.js', ['scripts-front']);
-    gulp.watch(config.assetsDir + 'scripts/backend/**/*.js', ['scripts-back']);
+    gulp.watch(config.assetsDir + 'scripts/backend/**/*', ['scripts-back']);
 });
 
 

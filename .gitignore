@@ -4,9 +4,8 @@
 /.tmp
 /.idea
 /node_modules
-/app/assets/bower_components
 /test/bower_components
-/public/assets/ckeditor
+/public/assets/images/posts
 composer.phar
 .env.*.php
 .env.php

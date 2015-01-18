@@ -1,7 +1,7 @@
 <?php namespace Chenkacrud\Seo;
 
 use Chenkacrud\Seo\Meta\Meta;
-use Chenkacrud\Seo\Meta\MetaTitle;
+use Chenkacrud\Seo\Meta\Title;
 
 class SeoDataBuilder implements BuilderInterface {
 
@@ -28,7 +28,7 @@ class SeoDataBuilder implements BuilderInterface {
      */
     public function addTitle($title)
     {
-        $this->seoData->setTitle(new MetaTitle($title));
+        $this->seoData->setTitle(new Title($title));
     }
 
     /**

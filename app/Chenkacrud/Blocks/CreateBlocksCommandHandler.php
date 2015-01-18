@@ -25,12 +25,12 @@ class CreateBlocksCommandHandler implements CommandHandler {
         foreach ($command->blocks as $type => $blocksArray)
         {
             $type = ucfirst($type);
+
             // recorre los blocks del mismo tipo
             foreach ($blocksArray as $blockData)
             {
                 $blocks->addBlock($this->factory->make($type, $blockData));
             }
-
         }
 
         return $blocks;

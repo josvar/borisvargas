@@ -3,12 +3,12 @@
 use Chenkacrud\Persistence\Serializable;
 use Chenkacrud\Seo\Exceptions\SeoWithoutTitleException;
 use Chenkacrud\Seo\Meta\Meta;
-use Chenkacrud\Seo\Meta\MetaTitle;
+use Chenkacrud\Seo\Meta\Title;
 
 class SeoData implements Serializable {
 
     /**
-     * @var MetaTitle
+     * @var Title
      */
     protected $title;
     protected $metas = array();
@@ -18,9 +18,9 @@ class SeoData implements Serializable {
     }
 
     /**
-     * @param MetaTitle $title
+     * @param Title $title
      */
-    public function setTitle(MetaTitle $title)
+    public function setTitle(Title $title)
     {
         $this->title = $title;
     }
@@ -34,7 +34,7 @@ class SeoData implements Serializable {
     }
 
     /**
-     * @return MetaTitle
+     * @return Title
      */
     public function getTitle()
     {
@@ -82,7 +82,7 @@ class SeoData implements Serializable {
     {
         $seoDataObj = new self();
 
-        $seoDataObj->title = MetaTitle::hydrate($data['title']);
+        $seoDataObj->title = Title::hydrate($data['title']);
         foreach ($data['metas'] as $meta)
         {
             $seoDataObj->addMeta(Meta::hydrate($meta));

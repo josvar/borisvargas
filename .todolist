@@ -3,3 +3,5 @@
 // tododev: cuando regresar al home hacer un scroll to top
 // tododev: Resolver topbar en devices small y medium-up, en small el height tiene que ser 40-50px
 // tododev: Hacer responsive links share de la seccion project
+
+// tododev: eliminar carpeta public/assets/images/projects

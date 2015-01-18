@@ -20,6 +20,8 @@
             <input placeholder="" name="blocks[image][0][driver]" type="hidden" value='dropbox-image'>
             <input placeholder="" name="blocks[image][0][data]" type="hidden" value='<%= data %>'>
         </div>
+
+        <?php //tododev: esta parte hacerla visible para mejorar usabilidad ?>
         <div class="large-4 columns">
             <!-- Image name Form Input -->
             <label>Image name:

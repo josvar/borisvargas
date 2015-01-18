@@ -15,7 +15,7 @@ class LocalPath implements Serializable{
 
     public function getPath()
     {
-        return public_path() . $this->base . $this->name;
+        return public_path() . '/' . $this->base . '/' . $this->name;
     }
 
 

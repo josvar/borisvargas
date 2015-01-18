@@ -2,8 +2,11 @@
 'use strict';
 
 require.config({
+    urlArgs: "bust=" + (new Date()).getTime(),
     paths: {
         jquery: '../libs/jquery',
+        "jquery.ui.widget": '../libs/vendor/jquery.ui.widget',
+        "jquery.fileupload": '../libs/jquery.fileupload',
         "jquery.cookie": '../libs/jquery.cookie',
         "foundation": '../libs/foundation',
         "foundation.abide": '../libs/foundation.abide',
@@ -68,14 +71,19 @@ require([
     'app'
 ], function (App) {
 
+    //require([
+    //    './create-project'
+    //], function (CreateProject)
+    //{
+    //    CreateProject.start();
+    //});
     require([
         'foundation.tab',
-        'modules/dropboxFile/dropbox'
-    ], function (foundation, DropboxFile) {
+        'modules/uploadFile/uploadFile'
+    ], function (foundation, UploadFile) {
         $(document).foundation({});
-
-        var obj = new DropboxFile($('.dropbox-file'));
-        obj.init();
+        var fileUpload = new UploadFile();
+        fileUpload.init();
     });
 
 });

@@ -126,7 +126,7 @@ return array(
 
 		'Chenkacrud\Seo\SeoDataServiceProvider',
 		'Chenkacrud\Blocks\BlocksServiceProvider',
-		'Chenkacrud\ImageManager\ImageManagerServiceProvider'
+		'Chenkacrud\Resources\ResourceManagerServiceProvider'
 	),
 
 	/*
