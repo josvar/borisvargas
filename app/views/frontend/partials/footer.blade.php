@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="">
-                <a target="" class="f-social-link" href="">
+                <a target="_blank" class="f-social-link" href="http://instagram.com/boris_vargas">
                     <div class="icon-instagram f-social-icon"></div>
                     <hr class="f-social-hr"/>
                     <div class="f-social-name">Instagram</div>

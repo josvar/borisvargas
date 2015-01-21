@@ -31,7 +31,8 @@ Route::group(['prefix' => $access_url, 'namespace' => 'Backend'], function ()
 
     });
 
-    Route::controller('api', 'Api\ResourcesController');
+    Route::controller('api/resources', 'Api\ResourcesController');
+    Route::controller('api/projects', 'Api\ProjectsController');
 });
 
 Route::group(['namespace' => 'Api'], function() {
@@ -46,7 +47,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 //        $a = View::make('frontend.partials.menu')->render();
 //        return Response::json(array('html' => $a, 'code' => 'lince'));
 //        return time();
-//        return Str::slug('my %ass 78 por ^a');
+        return Str::slug('Visual Resume 2.0');
 //        return public_path();
 
             $a = Chenkacrud\Seo::find(2);
@@ -58,18 +59,6 @@ Route::group(['namespace' => 'Frontend'], function() {
             $a = Chenkacrud\Project::find(14);
             dd($a->blocks->getBlocks());
             //dd($a->seo->data->getMetas());
-        });
-        Route::get('/image', function ()
-        {
-            $dataJsonEncoded = json_encode(array(
-                'thumbnailLink' => 'http://bucket3.clanacion.com.ar/anexos/fotos/95/ataque-terrorista-en-paris-1994295w300.jpg',
-                'bytes'         => 11372,
-                'link'          => 'https://html1-f.scribdassets.com/4tt1ff61og494qq6/images/1-150879b2e7.jpg',
-                'name'          => '1-150879b2e7.jpg',
-                'icon'          => 'https://www.dropbox.com/static/images/icons64/page_white.png',
-            ));
-
-            App::make('dropbox-image')->processImage($dataJsonEncoded);
         });
     }
 

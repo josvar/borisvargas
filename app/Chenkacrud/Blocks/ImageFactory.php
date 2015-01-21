@@ -8,23 +8,19 @@ class ImageFactory {
     {
         //$data
         //[
-        //    'driver'  => [
-        //        'type' => 'dropbox-link',
-        //        'data' => ''
-        //    ],
+        //    'driver'  => '',
         //    'data'    => '',
-        //    'name'    => '',
         //    'alt'     => '',
         //    'caption' => '',
         //];
 
-        $driver = App::make($data['driver']);
-        $driver->processImage($data['data']);
-        $paths = $driver->getPaths();
+        $pathsFactory = $data['driver'] . '-paths';
+        $pathsFactory = App::make($pathsFactory);
+
+        $paths = $pathsFactory->generate($data);
 
         $obj = new Image();
-        $obj->addName($data['name'])
-            ->addAlt($data['alt'])
+        $obj->addAlt($data['alt'])
             ->addCaption($data['caption'])
             ->addPaths($paths);
 

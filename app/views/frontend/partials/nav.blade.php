@@ -11,8 +11,8 @@
         <!-- Left Nav Section -->
         <ul class="left">
             <li data-async="home" class="{{ set_active('/') }}"><a class="nav-link" href="/">Portfolio</a></li>
-            <li data-async="about" class="{{ set_active('about') }}"><a class="nav-link" href="about">About</a></li>
-            <li data-async="contact" class="{{ set_active('contact') }}"><a class="nav-link" href="contact">Contact</a></li>
+            <li data-async="about" class="{{ set_active('about') }}"><a class="nav-link" href="/about">About</a></li>
+            <li data-async="contact" class="{{ set_active('contact') }}"><a class="nav-link" href="/contact">Contact</a></li>
         </ul>
 
         <div class="show-for-small-only left" style="width: 100%;">

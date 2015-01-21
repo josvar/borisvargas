@@ -11,15 +11,11 @@
             <div class="columns large-4">
                 <img src="{{thumb}}" alt=""/>
                 <input name="blocks[image][{{id}}][driver]" type="hidden" value='upload-image'>
-                <input name="blocks[image][{{id}}][raw_name]" type="hidden" value='{{raw_name}}'>
-                <input name="blocks[image][{{id}}][extension]" type="hidden" value='{{extension}}'>
+                <input name="blocks[image][{{id}}][data][raw_name]" type="hidden" value='{{raw_name}}'>
+                <input name="blocks[image][{{id}}][data][extension]" type="hidden" value='{{extension}}'>
             </div>
 
             <div class="large-4 columns">
-                <!-- Image name Form Input -->
-                <label>Image name:
-                    <input placeholder="" name="blocks[image][{{id}}][name]" type="text">
-                </label>
                 <!-- Alternative text Form Input -->
                 <label>Alternative text:
                     <input placeholder="" name="blocks[image][{{id}}][alt]" type="text">

@@ -8,27 +8,31 @@ class UploadImage extends ResourceManager {
     protected $basePath;
     protected $dir;
     protected $paths = [];
-    protected $hash;
+
+    //tododev: crear nuevos dimensiones para las imagenes
 
     function __construct($basePath)
     {
         $this->basePath = $basePath;
-        $this->dir = 'assets/images/posts/temp';
-        $this->hash = md5(uniqid(rand(), true));
-
-        $this->paths['raw_name'] = $this->hash;
+        $this->dir = 'assets/images/posts/' . date('Ymd');
+        $this->paths['relative'] = $this->dir;
     }
 
 
     function processImage($data)
     {
         $this->paths['extension'] = $data['file']->guessExtension();
-        $name = $data['file']->getClientOriginalName();
 
-        $image = Image::make($data['file']);
+        $name = $data['file']->getClientOriginalName();
+        $path_parts = pathinfo($name);
+
+        $this->paths['raw_name'] = $path_parts['filename'];
+        $imagePostThumb = Image::make($data['file']);
+        $imageFull = Image::make($data['file']);
 
         $this->generateFolder();
-        $this->storeImages($image, $name);
+
+        $this->storeImages($imagePostThumb, $imageFull, $this->paths['raw_name']);
 
     }
 
@@ -38,42 +42,71 @@ class UploadImage extends ResourceManager {
     }
 
     /**
-     * @param $image
-     * @param $name
+     * @param $imagePostThumb
+     * @param $imageFull
+     * @param $raw_name
      * @throws CannotSaveImageException
      */
-    protected function storeImages($image, $name)
+    protected function storeImages($imagePostThumb, $imageFull, $raw_name)
     {
-        $name = $this->generateName($name, '@2x');
+        //Store Full Images
+        $name = $this->generateName($raw_name, '@full2x');
         $path = $this->generatePath($name);
-        if ($image->save($path))
-        {
-            $this->paths['2x'] = $this->generateRelativePath($name);
-        } else
-        {
-            throw new CannotSaveImageException($path);
-        }
-
-        $name = $this->generateName($name, '@1x');
-        $path = $this->generatePath($name);
-
-        $image->resize($image->width() / 2, $image->height() / 2);
-        if ($image->save($path))
-        {
-            $this->paths['1x'] = $this->generateRelativePath($name);
-        } else
-        {
-            throw new CannotSaveImageException($path);
-        }
-
-        $name = $this->generateName($name, '@thumb');
-        $path = $this->generatePath($name);
-        $image->resize(150, null, function ($constraint) {
+        $imageFull->resize( 1280 , null, function ($constraint) {
             $constraint->aspectRatio();
         });
-        if ($image->save($path))
+        if ($imageFull->save($path))
+        {
+            $this->paths['@full2x'] = $this->generateRelativePath($name);
+        } else
+        {
+            throw new CannotSaveImageException($path);
+        }
+
+        $name = $this->generateName($raw_name, '@full1x');
+        $path = $this->generatePath($name);
+        $imageFull->resize(640,  null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        if ($imageFull->save($path))
+        {
+            $this->paths['@full1x'] = $this->generateRelativePath($name);
+        } else
+        {
+            throw new CannotSaveImageException($path);
+        }
+
+        $name = $this->generateName($raw_name, '@thumb');
+        $path = $this->generatePath($name);
+        $imageFull->resize(150, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        if ($imageFull->save($path))
         {
             $this->paths['thumb'] = $this->generateRelativePath($name);
+        } else
+        {
+            throw new CannotSaveImageException($path);
+        }
+
+        //Store Post Thumb Images
+        $name = $this->generateName($raw_name, '@post-thumb2x');
+        $path = $this->generatePath($name);
+        $imagePostThumb->resize( 1280 , 852);
+        if ($imagePostThumb->save($path))
+        {
+            $this->paths['@post-thumb2x'] = $this->generateRelativePath($name);
+        } else
+        {
+            throw new CannotSaveImageException($path);
+        }
+
+        $name = $this->generateName($raw_name, '@post-thumb1x');
+        $path = $this->generatePath($name);
+        $imagePostThumb->resize(640, 426);
+        if ($imagePostThumb->save($path))
+        {
+            $this->paths['@post-thumb1x'] = $this->generateRelativePath($name);
         } else
         {
             throw new CannotSaveImageException($path);
@@ -82,9 +115,7 @@ class UploadImage extends ResourceManager {
 
     protected function generateName($name, $suffix)
     {
-        $path_parts = pathinfo($name);
-        $name = $this->hash;
-        $extension = $path_parts['extension'];
+        $extension = $this->paths['extension'];
 
         return $name . $suffix . '.' . $extension;
     }

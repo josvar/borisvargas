@@ -43,7 +43,7 @@ define([
             var that = this;
             $(selector).fileupload({
                 dataType: 'json',
-                url: '/backend/api/resource',
+                url: '/backend/api/resources/create',
                 formData: {},
                 add: function (e, data) {
                     data.context = $('<button class="button tiny right"/>').text('Upload')

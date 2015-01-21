@@ -8,7 +8,7 @@ class ResourcesController extends BaseController {
 
     use CommanderTrait;
 
-    public function postResource()
+    public function postCreate()
     {
         $paths = $this->execute('Chenkacrud\Resources\ProcessResourceCommand');
 

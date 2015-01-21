@@ -33,13 +33,6 @@ class Image extends Block {
         return $this;
     }
 
-    public function addName($name)
-    {
-        $this->properties['name'] = $name;
-
-        return $this;
-    }
-
     /**
      * @param $alt
      * @return $this

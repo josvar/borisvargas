@@ -1,16 +1,28 @@
 <?php namespace Frontend;
 
-use View;
+use View, Config;
 
 class FrontController extends \BaseController {
 
-	public function getIndex()
-	{
-		return View::make('frontend.home');
-	}
-
-    public function getProject()
+    public function getIndex()
     {
+        $projectsStatic = Config::get('projects');
+        return View::make('frontend.home-static', array('projects' => $projectsStatic));
+    }
+
+    public function getProjects($nameProject)
+    {
+        $projectsStatic = Config::get('projects');
+        if (isset($projectsStatic[$nameProject]))
+        {
+            $projectData = $projectsStatic[$nameProject];
+
+            return View::make('frontend.project-static', array('project' => $projectData));
+        } else
+        {
+
+        }
+
         return View::make('frontend.project');
     }
 
@@ -29,9 +41,8 @@ class FrontController extends \BaseController {
         return View::make('frontend.about');
     }
 
-    public function getWork()
+    public function getPublic()
     {
-        return View::make('frontend.work');
-    }
 
+    }
 }
