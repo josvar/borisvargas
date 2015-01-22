@@ -1,0 +1,23 @@
+.back-to-top-l{
+  text-align: center;
+}
+.back-to-top{
+  padding: 60px 15px 15px;
+  text-align: center;
+  display: inline-block;
+
+  &-arrow{
+    display: block;
+    padding: 5px;
+    font-size: rem-calc(20);
+  }
+
+  &-link{
+    display: block;
+    padding: 0px;
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(11);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}

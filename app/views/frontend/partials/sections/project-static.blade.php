@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="columns medium-6 medium-centered large-6 large-centered">
+    <div class="columns columns medium-6 medium-centered large-6 large-centered">
         <div class="text_presentation text_presentation-project">
             <h3 class="sub-heading">{{ $project['category'] }}</h3>
 
@@ -9,6 +9,10 @@
 
             <div class="text_presentation-vr"></div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="columns medium-8 medium-centered large-8 large-centered">
         <div class="project-img-wrap">
             <div class="share-social-wrap">
                 <hr class="share-social-hr-top"/>
@@ -29,3 +33,5 @@
         </div>
     </div>
 </div>
+
+@include('frontend.partials.back-to-top')
