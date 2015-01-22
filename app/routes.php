@@ -62,5 +62,10 @@ Route::group(['namespace' => 'Frontend'], function() {
         });
     }
 
-    Route::controller('/', 'FrontController');
+    Route::get('/', 'FrontController@home');
+    Route::get('/about', 'FrontController@about');
+    Route::get('/contact', 'FrontController@contact');
+    Route::get('/projects/{id}', 'FrontController@projects');
+
+    Route::post('/contact', 'FrontController@feedback');
 });

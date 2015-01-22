@@ -2,19 +2,28 @@
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Redirect;
+use Redirect;
 use View, Config;
 
 class FrontController extends \BaseController {
 
-    public function getIndex()
+    public function home()
     {
         $projectsStatic = Config::get('projects');
 
         return View::make('frontend.home-static', array('projects' => $projectsStatic));
     }
+    public function about()
+    {
+        return View::make('frontend.about');
+    }
 
-    public function getProjects($nameProject)
+    public function contact()
+    {
+        return View::make('frontend.contact');
+    }
+
+    public function projects($nameProject)
     {
         $projectsStatic = Config::get('projects');
         if (isset($projectsStatic[$nameProject]))
@@ -27,30 +36,12 @@ class FrontController extends \BaseController {
 
         }
 
-        return View::make('frontend.project');
+        //tododev: thrown warning msg
+        return Redirect::to('/');
     }
 
-    public function getContact()
-    {
-        return View::make('frontend.contact');
-    }
 
-    public function getServices()
-    {
-        return View::make('frontend.services');
-    }
-
-    public function getAbout()
-    {
-        return View::make('frontend.about');
-    }
-
-    public function getPublic()
-    {
-
-    }
-
-    public function postContact()
+    public function feedback()
     {
         Mail::send('emails.feedback', [
             'name'   => Input::get('name'),
