@@ -5,8 +5,7 @@
 /.idea
 /node_modules
 /test/bower_components
-/public/assets/images/posts
-/public_html
+/public_html/assets/images/posts
 composer.phar
 .env.*.php
 .env.php

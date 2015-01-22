@@ -11,13 +11,13 @@ var bowerDir = 'vendor/bower_components/';
 var config = {
     assetsDir: 'app/assets/',
     bowerDir: 'vendor/bower_components/',
-    buildDir: 'public/build/',
-    cssOutput: 'public/assets/styles/',
-    fontOutput: 'public/assets/styles/fonts/',
-    imagesOutput: 'public/assets/images/',
-    libsOutput: 'public/assets/scripts/libs',
-    scriptsFrontOutput: 'public/assets/scripts/frontend/',
-    scriptsBackOutput: 'public/assets/scripts/backend/',
+    buildDir: 'public_html/build/',
+    cssOutput: 'public_html/assets/styles/',
+    fontOutput: 'public_html/assets/styles/fonts/',
+    imagesOutput: 'public_html/assets/images/',
+    libsOutput: 'public_html/assets/scripts/libs',
+    scriptsFrontOutput: 'public_html/assets/scripts/frontend/',
+    scriptsBackOutput: 'public_html/assets/scripts/backend/',
     libs: [
         bowerDir + 'fastclick/lib/fastclick.js',
         bowerDir + 'jquery.cookie/jquery.cookie.js',
@@ -103,7 +103,7 @@ gulp.task('fonts', function () {
 
 var cb_versioning = function () {
     return del(config.buildDir + '*', { force: true }, function () {
-        return gulp.src(['public/assets/styles/*.css'],  { base: 'public/assets' })
+        return gulp.src(['public_html/assets/styles/*.css'],  { base: 'public_html/assets' })
             .pipe(gulp.dest(config.buildDir))
             .pipe($.minifyCss())
             .pipe($.rev())
@@ -121,7 +121,7 @@ gulp.task('version-back', ['styles-back'], function () {
 });
 //gulp.task('ckeditor', function () {
 //    return gulp.src('app/assets/bower_components/ckeditor/**/*')
-//        .pipe(gulp.dest('public/assets/ckeditor'));
+//        .pipe(gulp.dest('public_html/assets/ckeditor'));
 //});
 
 gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-back'], function () {
