@@ -3,12 +3,6 @@
         Options -MultiViews
     </IfModule>
 
-    <FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
-    Order Allow,Deny
-    Deny from all
-    </FilesMatch>
-
-
     RewriteEngine On
 
     # Redirect Trailing Slashes...
