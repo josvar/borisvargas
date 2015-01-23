@@ -20,7 +20,8 @@ require([
     require([
         'modules/header/header',
         'modules/presenter/presenter',
-        'modules/thumbs/thumbs'
+        'modules/thumbs/thumbs',
+        'modules/backToTop/backToTop'
     ], function (Header, presenter, thumbs) {
         Header.start();
         presenter.start();

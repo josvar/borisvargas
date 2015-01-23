@@ -8,13 +8,14 @@
 
   &-arrow{
     display: block;
-    padding: 5px;
+    padding: 8px 0px 0px;
     font-size: rem-calc(20);
   }
 
   &-link{
     display: block;
-    padding: 0px;
+    padding: 5px;
+    font-weight: 700;
     font-family: $font-family-sans-serif;
     font-size: rem-calc(11);
     text-transform: uppercase;

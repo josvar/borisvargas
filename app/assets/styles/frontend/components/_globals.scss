@@ -69,9 +69,21 @@
   &:hover {
     color: scale_color($primary-color, $lightness: 30%);
     > i {
-      transition: 100ms padding ease-in;
+      transition: 150ms padding ease-in;
       padding-left: 25px;
     }
   }
 }
 
+.link-arrow-vertical {
+  > i {
+    transition: 150ms padding ease-out;
+  }
+  &:hover {
+    color: scale_color($primary-color, $lightness: 30%);
+    > i {
+      transition: 150ms padding ease-in;
+      padding: 0 0 8px;
+    }
+  }
+}

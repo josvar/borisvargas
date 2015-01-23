@@ -1,21 +1,25 @@
 .share-social-wrap {
   color: $shared-icons-color;
-  width: 35px;
   padding: 0 5px 0;
-  position: absolute;
-  top: 0;
-  left: -90px;
-  z-index: 6;
+  @media #{$medium-up} {
+    width: 35px;
+    position: absolute;
+    top: 0;
+    left: -90px;
+    z-index: 6;
+  }
 }
 
 .share-social-icons {
+  font-size: 30px;
   position: relative;
   z-index: 8;
   list-style: none;
-  font-size: 22px;
   margin: 0;
   text-align: center;
+  line-height: 30px;
   >li {
+    padding: 20px 3px 10px;
     display: inline-block;
     >a {
       @extend .link-transition;
@@ -26,25 +30,40 @@
       }
     }
   }
+  @media #{$medium-up} {
+    font-size: 22px;
+    >li{
+      padding: 0;
+    }
+  }
 }
 
 .share-social-hr-top {
-  border-color: $shared-icons-color;
-  margin: 0 4px 38px;
-  border-top-width: 1px;
+  display: none;
+  @media #{$medium-up} {
+    display: block;
+    border-color: $shared-icons-color;
+    margin: 0 4px 38px;
+    border-top-width: 1px;
+  }
 }
 
 .share-social-vertical-text {
-  z-index: 4;
-  position: absolute;
-  left: -56px;
-  font-size: rem-calc(11px);
-  width: 150px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transform: rotate(-90deg);
-  > i {
-    padding-left: 10px;
-    font-size: 30px;
+  display: none;
+  @media #{$medium-up} {
+    display: block;
+    z-index: 4;
+    position: absolute;
+    font-family: $font-family-sans-serif;
+    left: -56px;
+    font-size: rem-calc(11px);
+    width: 150px;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    > i {
+      padding-left: 10px;
+      font-size: 30px;
+      line-height: 30px;
+    }
   }
 }
