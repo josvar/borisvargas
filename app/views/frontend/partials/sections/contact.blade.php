@@ -44,3 +44,5 @@
 
     </div>
 </div>
+
+@include('frontend.partials.notifications')

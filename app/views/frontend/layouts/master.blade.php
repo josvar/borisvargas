@@ -15,7 +15,8 @@
     @show
     <meta name="viewport" content="width=device-width">
 
-    <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
+    @include('frontend.partials.favicons')
+
     @section('styles')
         {{--    <link rel="stylesheet" href="{{ asset('assets/styles/vendor.css') }}"/>--}}
         <link rel="stylesheet" href="{{ elixir('styles/boris.css') }}"/>

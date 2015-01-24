@@ -1,0 +1,28 @@
+.notification-box {
+  text-align: center;
+  font-family: $font-family-sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  @include alert();
+  position: fixed;
+  display: block;
+  width: 100%;
+  opacity: .95;
+  top: 0;
+  .close {
+    @include alert-close();
+  }
+  &.alert-close {
+    opacity: 0;
+  }
+  span{
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  &-text-left {
+    color: $nav-ppal-color;
+  }
+  &-text-right{
+    color: #fff;
+  }
+}
