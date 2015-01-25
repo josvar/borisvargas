@@ -2,14 +2,20 @@
 'use strict';
 
 require.config({
-    shim: {},
+    shim: {
+        'modernizr': {
+            exports: 'Modernizr'
+        }
+    },
     paths: {
+        modernizr: '../libs/modernizr',
         jquery: '../libs/jquery',
         backbone: '../libs/backbone',
         underscore: '../libs/lodash',
         radio: '../libs/backbone.radio',
         hogan: '../libs/hogan-3.0.2.amd',
-        layoutmanager: '../libs/backbone.layoutmanager'
+        layoutmanager: '../libs/backbone.layoutmanager',
+        pace: '../libs/pace'
     }
 });
 
@@ -17,17 +23,8 @@ require([
     'app'
 ], function (App) {
 
-    require([
-        'modules/header/header',
-        'modules/presenter/presenter',
-        'modules/thumbs/thumbs',
-        'modules/backToTop/backToTop'
-    ], function (Header, presenter, thumbs) {
-        Header.start();
-        presenter.start();
-        thumbs.start();
-        Backbone.history.start();
-    });
+
+    App.start();
     //window.onpopstate = function (event) {
     //    Backbone.trigger('popstate', event);
     //};

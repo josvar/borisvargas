@@ -31,7 +31,9 @@ var config = {
         bowerDir + 'layoutmanager/backbone.layoutmanager.js',
         bowerDir + 'requirejs/require.js',
         bowerDir + 'jquery-file-upload/js/jquery.iframe-transport.js',
-        bowerDir + 'jquery-file-upload/js/**/*'
+        bowerDir + 'jquery-file-upload/js/**/*',
+        bowerDir + 'modernizr/modernizr.js',
+        bowerDir + 'pace/pace.js'
     ],
     fonts: [
         this.bowerDir + 'foundation-icon-fonts/*',

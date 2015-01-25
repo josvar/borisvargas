@@ -52,12 +52,6 @@
             ga('send', 'pageview');
 
         </script>
-
-        {{--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}}
-        {{--<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation.min.js"></script>--}}
-        {{--<script>--}}
-        {{--$(document).foundation();--}}
-        {{--</script>--}}
         <script data-main="{{ asset('assets/scripts/frontend/main') }}"
                 src="{{ asset('assets/scripts/libs/require.js') }}"></script>
 

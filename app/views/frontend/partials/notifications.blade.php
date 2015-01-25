@@ -1,7 +1,7 @@
-<div data-alert class="notification-box success hide">
-    <span class="notification-box-text-left">Your email has been received</span>
-    <span class="notification-box-text-right">Thank you for contacting me!</span>
-    <a href="#" class="close">&times;</a>
-</div>
-
-
+<script id="notification-two-tpl" type="text/template">
+    <div class="notification-box <%= type %> two-columns <%= effect %> ns-hide">
+        <span class="notification-box-text-left"><%= message.left %></span>
+        <span class="notification-box-text-right"><%= message.right %></span>
+        <a href="#" class="ns-close">&times;</a>
+    </div>
+</script>

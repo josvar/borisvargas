@@ -13,30 +13,30 @@
         </div>
         <div class="contact_me">
             <!-- Form -->
-            {{ Form::open(['url' => 'contact', 'method' => 'POST']) }}
+            {{ Form::open(['data-remote', 'url' => 'contact', 'method' => 'POST']) }}
 
             <!-- Name Form Input -->
             <div class="">
                 <label>Name:
-                    {{ Form::text('name', null, ['placeholder' => ''] ) }}
+                    {{ Form::text('name', null, ['required', 'placeholder' => ''] ) }}
                 </label>
             </div>
             <!-- Email Form Input -->
             <div class="">
                 <label>E-Mail:
-                    {{ Form::text('email', null, ['placeholder' => ''] ) }}
+                    {{ Form::email('email', null, ['required', 'placeholder' => ''] ) }}
                 </label>
             </div>
             <!-- Message Form Input -->
             <div class="">
                 <label>Message:
-                    {{ Form::textarea('message', null, ['placeholder' => '', 'rows' => 9] ) }}
+                    {{ Form::textarea('message', null, ['required', 'placeholder' => '', 'rows' => 9] ) }}
                 </label>
             </div>
 
             <!-- Send Message Form Input -->
             <div class="">
-                {{ Form::submit('Send Message', ['class' => 'button tiny expand'] ) }}
+                {{ Form::submit('Send Message', ['data-send', 'autocomplete' =>'off','class' => 'button tiny expand'] ) }}
             </div>
 
             {{ Form::close() }}

@@ -6,11 +6,29 @@ define(function(require, exports, module) {
     var Backbone = require('backbone');
     var Layout = require('layoutmanager');
     var Radio = require('radio');
+    var Modernizr = require('modernizr');
+    var pace = require('pace');
     var app = module.exports;
-
 
     _.extend(app, Backbone.Events);
     _.extend(app, Radio.Commands);
+
+    // app global options
+    app.options = {
+        _token: $('meta[name=csrf-token]').attr("content")
+    };
+
+    pace.start({
+        document: false,
+        restartOnPushState: false,
+        ajax: {
+            trackMethods: ['POST']
+        }
+    });
+
+    $.ajaxSetup({
+        headers: {'X-CSRF-Token': app.options._token}
+    });
 
     app.options = {
         menu: $('nav ul.left'),
@@ -33,6 +51,17 @@ define(function(require, exports, module) {
     exports.root = "/";
 
     app.start = function () {
-
+        require([
+            'modules/header/header',
+            'modules/presenter/presenter',
+            'modules/thumbs/thumbs',
+            'modules/backToTop/backToTop',
+            'modules/contact/contact'
+        ], function (Header, presenter, thumbs, Contact ) {
+            Header.start();
+            presenter.start();
+            thumbs.start();
+            Backbone.history.start();
+        });
     }
 });
