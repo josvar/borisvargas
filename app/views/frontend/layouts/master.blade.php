@@ -9,6 +9,7 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
+    <meta name="google-site-verification" content="CH9jdlCzACaTDv_C1CkGojXryqgK6A-IF4apIrGoCfU" />
     @section('seo')
         <title>Boris Vargas - Graphic Design</title>
         <meta name="description" content="I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to print Indesign templates to agencies and designers.">
