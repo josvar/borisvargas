@@ -36,7 +36,7 @@
     @foreach ($projects as $id => $project)
         <li class="lp-box" data-async="{{$id}}">
             <figure>
-                <a class="lp-box-link" href="">
+                <a class="lp-box-link" href="/projects/{{$id}}">
                     <div class="lp-box-img-wrapper">
                         <img src="{{ asset( $project['thumb'] ) }}" alt="{{$project['images'][0]['alt']}}">
                     </div>
