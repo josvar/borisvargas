@@ -77,13 +77,17 @@ gulp.task('scripts-libs', function () {
 });
 
 gulp.task('scripts-front', function () {
-    gulp.src(config.assetsDir + '/scripts/frontend/**/*.js')
-        .pipe(gulp.dest(config.scriptsFrontOutput));
+    return del(config.scriptsFrontOutput + '*', {force: true}, function () {
+        gulp.src(config.assetsDir + '/scripts/frontend/**/*.js')
+            .pipe(gulp.dest(config.scriptsFrontOutput));
+    });
 });
 
 gulp.task('scripts-back', function () {
-    gulp.src(config.assetsDir + '/scripts/backend/**/*')
-        .pipe(gulp.dest(config.scriptsBackOutput));
+    return del(config.scriptsBackOutput + '*', {force: true}, function () {
+        gulp.src(config.assetsDir + '/scripts/backend/**/*')
+            .pipe(gulp.dest(config.scriptsBackOutput));
+    });
 });
 
 gulp.task('images', function () {
@@ -121,10 +125,6 @@ gulp.task('version-front', ['styles-front'], function () {
 gulp.task('version-back', ['styles-back'], function () {
     return cb_versioning();
 });
-//gulp.task('ckeditor', function () {
-//    return gulp.src('app/assets/bower_components/ckeditor/**/*')
-//        .pipe(gulp.dest('public_html/assets/ckeditor'));
-//});
 
 gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-back'], function () {
     gulp.watch(config.assetsDir + 'styles/frontend/**/*.scss', ['version-front']);

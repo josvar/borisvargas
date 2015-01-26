@@ -26,12 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function ()
 {
-    return in_array(
-        gethostname(),
-        [
-            'linux-643i.site'
-        ]
-    ) ? 'development' : 'production';
+    return getenv('APP_ENV') ?: 'production';
 });
 
 /*
