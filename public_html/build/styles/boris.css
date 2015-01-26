@@ -3532,16 +3532,34 @@ th.hide-for-touch {
 .l-header-small-banner {
   height: 100px;
   padding: 12px 0; }
-  .l-header-small-banner > img {
+  .l-header-small-banner > a {
+    position: relative;
+    z-index: 20;
     display: block;
-    margin: 0 auto; }
+    margin: 0 auto;
+    width: 70px;
+    height: 70px; }
+    .l-header-small-banner > a > img {
+      width: 70px;
+      height: 70px; }
 
 .l-header-banner {
-  padding: 50px 0;
-  z-index: 1; }
-  .l-header-banner > img {
+  padding: 50px 0; }
+  @media only screen and (min-width:40.063em) and (max-width:64em) {
+    .l-header-banner {
+      padding-top: 100px; } }
+  .l-header-banner > a {
+    width: 311px;
+    height: 226px;
     display: block;
     margin: 0 auto; }
+    @media only screen and (min-width:64.063em) {
+      .l-header-banner > a {
+        z-index: 20;
+        position: relative; } }
+    .l-header-banner > a > img {
+      width: 311px;
+      height: 226px; }
 
 .preview_project {
   padding-bottom: 0;

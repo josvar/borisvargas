@@ -6,17 +6,38 @@
 .l-header-small-banner{
   height: 100px;
   padding: 12px 0;
-  > img {
+  > a {
+    position: relative;
+    z-index: 20;
     display: block;
     margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    > img {
+      width: 70px;
+      height: 70px;
+    }
   }
 }
 
 .l-header-banner{
   padding: 50px 0;
-  z-index: 1;
-  > img {
+  @media #{$medium-only} {
+    padding-top: 100px;
+  }
+  > a {
+    @media #{$large-up} {
+      z-index: 20;
+      position: relative;
+    }
+    width: 311px;
+    height: 226px;
     display: block;
     margin: 0 auto;
+
+    > img {
+      width: 311px;
+      height: 226px;
+    }
   }
 }

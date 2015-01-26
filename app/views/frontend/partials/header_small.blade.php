@@ -2,6 +2,8 @@
     @include('frontend/partials/nav')
     <!-- l-header-banner: layout for banner -->
     <div class="l-header-small-banner">
-        <img src="{{ asset('assets/images/logo-dark.svg') }}" alt="">
+        <a class="logo-small" href="/">
+            <img src="{{ asset('assets/images/logo-small-dark.svg') }}" alt="Boris Vargas - Graphic Design">
+        </a>
     </div>
 </header>
