@@ -1,6 +1,6 @@
 ({
     mainConfigFile: 'main.js',
-    out: "main-front-built.js",
+    out: "main-back-built.js",
     baseUrl: ".",
     name: "main",
     findNestedDependencies: true,

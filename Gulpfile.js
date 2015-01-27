@@ -15,7 +15,7 @@ var config = {
     cssOutput: 'public_html/assets/styles/',
     fontOutput: 'public_html/assets/styles/fonts/',
     imagesOutput: 'public_html/assets/images/',
-    libsOutput: 'public_html/assets/scripts/libs',
+    libsOutput: 'public_html/assets/scripts/libs/',
     scriptsFrontOutput: 'public_html/assets/scripts/frontend/',
     scriptsBackOutput: 'public_html/assets/scripts/backend/',
     libs: [
@@ -52,6 +52,7 @@ gulp.task('styles-back', function () {
             precision: 10
         }))
         .pipe($.autoprefixer('last 1 version'))
+        .pipe($.minifyCss())
         .pipe(gulp.dest(config.cssOutput));
 });
 
@@ -63,6 +64,7 @@ gulp.task('styles-front', function () {
             precision: 10
         }))
         .pipe($.autoprefixer('last 1 version'))
+        .pipe($.minifyCss())
         .pipe(gulp.dest(config.cssOutput));
 });
 
@@ -78,7 +80,7 @@ gulp.task('scripts-libs', function () {
 
 gulp.task('scripts-front', function () {
     return del(config.scriptsFrontOutput + '*', {force: true}, function () {
-        gulp.src(config.assetsDir + '/scripts/frontend/**/*.js')
+        gulp.src(config.assetsDir + '/scripts/frontend/**/*')
             .pipe(gulp.dest(config.scriptsFrontOutput));
     });
 });
@@ -109,9 +111,8 @@ gulp.task('fonts', function () {
 
 var cb_versioning = function () {
     return del(config.buildDir + '*', { force: true }, function () {
-        return gulp.src(['public_html/assets/styles/*.css'],  { base: 'public_html/assets' })
+        return gulp.src(['public_html/assets/styles/*.css'])
             .pipe(gulp.dest(config.buildDir))
-            .pipe($.minifyCss())
             .pipe($.rev())
             .pipe(gulp.dest(config.buildDir))
             .pipe($.rev.manifest())
@@ -134,7 +135,23 @@ gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-b
     gulp.watch(config.assetsDir + 'scripts/backend/**/*', ['scripts-back']);
 });
 
+gulp.task('requirejs', function () {
+    gulp.src(config.libsOutput + 'require.js')
+        .pipe($.uglify())
+        .pipe(gulp.dest(config.buildDir + 'libs'));
+});
 
-//gulp.task('default', function () {
-//    gulp.start('build');
-//});
+gulp.task('build', function () {
+    return del(config.buildDir + '*' , {force: true}, function () {
+        gulp.src([
+            config.scriptsBackOutput + 'main-back-built.js',
+            config.scriptsFrontOutput + 'main-front-built.js',
+            config.cssOutput + '*.css'
+        ])
+            .pipe(gulp.dest(config.buildDir))
+            .pipe($.rev())
+            .pipe(gulp.dest(config.buildDir))
+            .pipe($.rev.manifest())
+            .pipe(gulp.dest(config.buildDir));
+    });
+});
