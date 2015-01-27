@@ -8,12 +8,13 @@ var del = require('del');
 var $ = require('gulp-load-plugins')();
 
 var bowerDir = 'vendor/bower_components/';
+var assetsDir = 'app/assets/';
 var config = {
     assetsDir: 'app/assets/',
     bowerDir: 'vendor/bower_components/',
     buildDir: 'public_html/build/',
     cssOutput: 'public_html/assets/styles/',
-    fontOutput: 'public_html/assets/styles/fonts/',
+    fontOutput: 'public_html/assets/fonts/',
     imagesOutput: 'public_html/assets/images/',
     libsOutput: 'public_html/assets/scripts/libs/',
     scriptsFrontOutput: 'public_html/assets/scripts/frontend/',
@@ -36,8 +37,8 @@ var config = {
         bowerDir + 'pace/pace.js'
     ],
     fonts: [
-        this.bowerDir + 'foundation-icon-fonts/*',
-        this.assetsDir + 'styles/fonts/**/*'
+        bowerDir + 'foundation-icon-fonts/*',
+        assetsDir + 'styles/fonts/**/*'
     ],
     images: [
         this.assetsDir + 'images/**/*'
@@ -135,12 +136,6 @@ gulp.task('watch', ['version-front', 'version-back', 'scripts-front', 'scripts-b
     gulp.watch(config.assetsDir + 'scripts/backend/**/*', ['scripts-back']);
 });
 
-gulp.task('requirejs', function () {
-    gulp.src(config.libsOutput + 'require.js')
-        .pipe($.uglify())
-        .pipe(gulp.dest(config.buildDir + 'libs'));
-});
-
 gulp.task('build', function () {
     return del(config.buildDir + '*' , {force: true}, function () {
         gulp.src([
@@ -153,5 +148,9 @@ gulp.task('build', function () {
             .pipe(gulp.dest(config.buildDir))
             .pipe($.rev.manifest())
             .pipe(gulp.dest(config.buildDir));
+
+        gulp.src(config.libsOutput + 'require.js')
+            .pipe($.uglify())
+            .pipe(gulp.dest(config.buildDir + 'libs'));
     });
 });
