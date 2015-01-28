@@ -5,6 +5,7 @@ return [
         'title'    => 'Studio Proposal Template 2.0',
         'category' => 'Print templates',
         'seo'      => [
+            'canonical'   => 'projects/studio-proposal-template-20',
             'title'       => 'Studio Proposal Template 2.0 - Boris Vargas',
             'description' => 'The layout intended to graphic designers, graphic design studio, agency, firm, and freelancer to ease the regular negotiations with client.'
         ],
@@ -85,6 +86,7 @@ return [
         'title'    => 'Visual Resume 2.0',
         'category' => 'Print templates',
         'seo'      => [
+            'canonical'   => 'projects/visual-resume-20',
             'title'       => 'Visual Resume 2.0 - Boris Vargas',
             'description' => 'Professional and creative 3-piece Resume template with clean and trendy layout. Ideal for individuals working in creative fields that require adding images to their written CV. The perfect way to make the best impression.'
         ],
@@ -129,6 +131,7 @@ return [
         'title'    => 'Dale Magazine',
         'category' => 'Editorial Design',
         'seo'      => [
+            'canonical'   => 'projects/dale-magazine',
             'title'       => 'Dale Magazine - Boris Vargas',
             'description' => 'Dale magazine is contemporary cultural magazine. This was the last project for the subject Editorial Design from the University of Buenos Aires.'
         ],
@@ -197,6 +200,7 @@ A4 format, 72 pages plus a cultural Agenda, and an artist portfolio/dossier.',
         'title'    => 'Resume Template',
         'category' => 'Print templates',
         'seo'      => [
+            'canonical'   => 'projects/resume-template',
             'title'       => 'Resume Template - Boris Vargas',
             'description' => 'Professional and creative 3-piece Resume template with clean and trendy layout. Ideal for individuals working in creative fields that require adding images to their written CV.'
         ],
@@ -241,6 +245,7 @@ A4 format, 72 pages plus a cultural Agenda, and an artist portfolio/dossier.',
         'title'    => 'Studio Brochure Template',
         'category' => 'Print templates',
         'seo'      => [
+            'canonical'   => 'projects/studio-brochure-template',
             'title'       => 'Studio Brochure Template - Boris Vargas',
             'description' => 'This 24 page indesign A4 brochure template has been created with designers and agencies in mind.This template is a brochure with space to give a little extra information about your company, some facts and figures and also some infographics. All Files are print ready.'
         ],
@@ -297,6 +302,7 @@ A4 format, 72 pages plus a cultural Agenda, and an artist portfolio/dossier.',
         'title'    => 'Studio Proposal Template',
         'category' => 'Print templates',
         'seo'      => [
+            'canonical'   => 'projects/studio-proposal-template',
             'title'       => 'Studio Brochure Template - Boris Vargas',
             'description' => 'A Creative & Clean Proposal 24 pages for multi-purpose use, hi-quality design, Clean, professional and modern Proposal template saves your time & cost, fully Editable InDesign, easy replace own images and very easy to edit and change pages without loss of quality or layout Free font included. Change colour easily through swatch palette. All Files are print ready.'
         ],
@@ -341,6 +347,7 @@ A4 format, 72 pages plus a cultural Agenda, and an artist portfolio/dossier.',
         'title'    => 'Newspaper Design Vol. 1',
         'category' => 'Editorial Design',
         'seo'      => [
+            'canonical'   => 'projects/newspaper-design',
             'title'       => 'Newspaper Design Vol. 1 - Boris Vargas',
             'description' => 'This was a project for the subject typography 2 from the University of Buenos Aires. The brief was to design a newspaper of general information with a strong presence of infographics.
 I do not claim to own any of the imagery I used in this project.'
@@ -454,6 +461,7 @@ In order to remove Astronomy myths that get people away from this ancient scienc
             ],
         ],
         'seo'      => [
+            'canonical'   => 'projects/aurora-programme',
             'title'       => 'Aurora Programme - Boris Vargas',
             'description' => 'Aurora Programme is an Astronomy public awareness programme of Argentina  with the primary objectives of creating, and then implementing, an argentinian long-term plan for bringing this discipline to society.
 In order to remove Astronomy myths that get people away from this ancient science, this programme consist of a Astronomy Festival that performs activities and events and a School Plan to raise public awareness of Argentinian Astronomy and its history.']
@@ -486,6 +494,7 @@ In order to remove Astronomy myths that get people away from this ancient scienc
             ]
         ],
         'seo'      => [
+            'canonical'   => 'projects/illustration-cover-magazine',
             'title'       => 'Illustration - Cover Magazine',
             'description' => 'Some illustrations for a magazine cover geared toward teenagers.']
     ],
@@ -493,6 +502,7 @@ In order to remove Astronomy myths that get people away from this ancient scienc
         'title'    => 'Pymes Magazine',
         'category' => 'Editorial Design',
         'seo'      => [
+            'canonical'   => 'projects/pymes-magazine',
             'title'       => 'Newspaper Design - Boris Vargas',
             'description' => 'This was the last project for the subject Editorial Design from the University of Buenos Aires.
 A4 format, 16 pages.'
@@ -582,6 +592,7 @@ This was a college project for the signature Editorial Design, FADU, UBA.',
             ]
         ],
         'seo'      => [
+            'canonical'   => 'projects/experimental-brochure',
             'title'       => 'Experimental Brochure - Boris Vargas',
             'description' => 'Experimental Brochure about the chapter "El infinito, ahora" from the book "Con la esperanza entre los dientes" by John Berger.
 This was a college project for the signature Editorial Design, FADU, UBA.']
@@ -627,6 +638,7 @@ Accent Librarian brochure for Accent Technologies.',
             ],
         ],
         'seo'      => [
+            'canonical'   => 'projects/accent-librarian-brochure',
             'title'       => 'Accent Librarian Brochure - Boris Vargas',
             'description' => 'I was asked to develop, under the creative direction of David Bitton, the
 Accent Librarian brochure for Accent Technologies.'

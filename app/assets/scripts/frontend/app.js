@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
     "use strict";
 
     var $ = require('jquery');
@@ -36,7 +36,7 @@ define(function(require, exports, module) {
         thumbs: $('.listProjects')
     };
 
-    app.navigate = function(route,  options){
+    app.navigate = function (route, options) {
         options || (options = {});
         Backbone.history.navigate(route, options);
     };
@@ -44,7 +44,6 @@ define(function(require, exports, module) {
     Layout.configure({
         manage: true
     });
-
 
 
     // The root path to run the application through.
@@ -56,12 +55,14 @@ define(function(require, exports, module) {
             'modules/presenter/presenter',
             'modules/thumbs/thumbs',
             'modules/backToTop/backToTop',
-            'modules/contact/contact'
-        ], function (Header, presenter, thumbs, Contact ) {
+            'modules/contact/contact',
+            'modules/socialPopup/socialPopup'
+        ], function (Header, presenter, thumbs, backToTop, Contact, SocialPopup) {
             Header.start();
             presenter.start();
             thumbs.start();
             Backbone.history.start();
+            SocialPopup.start();
         });
     }
 });
