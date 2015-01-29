@@ -2,9 +2,8 @@
     <div class="text_presentation row">
         <hr class="text_presentation-hr"/>
         <p class="text_presentation-p text_presentation-p-home">
-            I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally
-            as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to
-            print Indesign templates to agencies and designers.
+            Boris Vargas is a Graphic Designer currently based in Buenos Aires, Argentina.
+            He works internationally as a full-time freelancer and always open for new projects and opportunities.
         </p>
 
         <div class="text_presentation-vr"></div>
