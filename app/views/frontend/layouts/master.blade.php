@@ -12,7 +12,7 @@
     <meta name="google-site-verification" content="CH9jdlCzACaTDv_C1CkGojXryqgK6A-IF4apIrGoCfU" />
     @section('seo')
         <title>Boris Vargas - Graphic Design</title>
-        <meta name="description" content="I'm Boris Vargas. I'm a Graphic Designer currently based in Buenos Aires, Argentina. I work internationally as a full-time freelancer and always open for new projects and opportunities. I also sell high-end, ready to print Indesign templates to agencies and designers.">
+        <meta name="description" content="Boris Vargas is a Graphic Designer currently based in Buenos Aires, Argentina. He works internationally as a full-time freelancer and always open for new projects and opportunities.">
     @show
     <meta name="viewport" content="width=device-width">
 
