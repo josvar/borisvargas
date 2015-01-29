@@ -5,6 +5,7 @@
     <meta name="description" content="{{ $project['seo']['description'] }}">
     <meta property="og:description" content="{{ $project['seo']['description'] }}" />
     <meta property="og:title" content="{{ $project['seo']['title'] }}" />
+    <meta property="og:image" content="{{ canonical_url($project['thumb']) }}" />
     <link rel="canonical" href="{{ canonical_url($project['seo']['canonical']) }}" />
 
     <meta name="twitter:card" content="summary_large_image">
