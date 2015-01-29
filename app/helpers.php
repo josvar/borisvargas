@@ -5,6 +5,12 @@ function set_active( $path, $active = 'active' )
     return Request::is($path) ? $active : '';
 }
 
+function canonical_url($pathRelative = '')
+{
+    return Request::root() . '/' . $pathRelative;
+}
+
+
 function canonical_url_encoded($pathRelative = '')
 {
     return urlencode(Request::root() . '/' . $pathRelative);
