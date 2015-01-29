@@ -1,5 +1,6 @@
 <?php namespace Frontend;
 
+use App;
 use View, Config, Redirect;
 
 class FrontController extends \BaseController {
@@ -28,8 +29,7 @@ class FrontController extends \BaseController {
 
         }
 
-        //tododev: thrown warning msg
-        return Redirect::to('/');
+        App::abort(404);
     }
 
 }

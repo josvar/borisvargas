@@ -1,9 +1,5 @@
 @extends('frontend.layouts.master')
 
-@section('title')
-Boris' Portfolio
-@stop
-
 @section('body_opening')
 <body class="contact">
 @stop

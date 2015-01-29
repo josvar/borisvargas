@@ -19,12 +19,14 @@
                 <ul class="share-social-icons">
                     <li>
                         <a data-social-popup target="_blank"
-                           href=""><i class="icon-facebook-c"></i>
+                           href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url_encoded($project['seo']['canonical']) }}">
+                            <i class="icon-facebook-c"></i>
                         </a>
                     </li>
                     <li>
                         <a data-social-popup target="_blank"
-                           href=""><i class="icon-pinterest-c"></i>
+                           href="https://pinterest.com/pin/create/button/?url={{ canonical_url_encoded($project['seo']['canonical']) }}&media={{ canonical_url_encoded($project['images'][0]['link']) }}&description={{ urlencode($project['seo']['title']) }}">
+                            <i class="icon-pinterest-c"></i>
                         </a>
                     </li>
                     <li>
@@ -35,7 +37,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href=""><i class="icon-linkedin-c"></i>
+                        <a data-social-popup target="_blank"
+                           href="https://www.linkedin.com/shareArticle?mini=true&url=http://borisvargas.com/projects/resume-template&title={{ urlencode($project['seo']['title']) }}&summary=&source=Boris%20Vargas%20-%20Graphic%20Design"
+                                ><i class="icon-linkedin-c"></i>
                         </a>
                     </li>
                 </ul>
