@@ -34,6 +34,8 @@
                 </label>
             </div>
 
+            {{--<div class="g-recaptcha" data-sitekey="6LfwMwETAAAAAJhPvnGr8oyOHmaxkjYcSEfwf8nU"></div>--}}
+
             <!-- Send Message Form Input -->
             <div class="">
                 {{ Form::submit('Send Message', ['data-send', 'autocomplete' =>'off','class' => 'button tiny expand'] ) }}

@@ -32,6 +32,13 @@
       color: #fff;
     }
   }
+  &.one-columns {
+    background-color: $alert-color;
+    border-color: $alert-color;
+    span {
+      color: #FFF;
+    }
+  }
 }
 
 .notification-box.ns-hide {

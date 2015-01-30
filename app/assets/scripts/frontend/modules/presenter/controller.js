@@ -5,7 +5,7 @@ define([
     './views'
 ], function (Backbone, $, Model, views) {
     var controller = {
-        showPreview: function (id, cb_success) {
+        showPreview: function (id, cb_success, cb_fails) {
 
             $('html, body').animate({
                 scrollTop: $("#presenter").offset().top
@@ -23,7 +23,6 @@ define([
             var p = model.fetch();
             p.done(function () {
                     setTimeout(function () {
-                        console.log('fetched!!');
                         var preview = new views.Preview({
                             model: model
                         });
@@ -38,9 +37,15 @@ define([
                     }, 500);
                 }
             );
+            p.fail(function (jqXHR) {
+                cb_fails();
+            });
         },
 
         showWelcome: function (cb_success) {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
             var welcome = new views.Welcome();
             views.layout.insertViews([
                 welcome

@@ -1,4 +1,3 @@
 <?php
 
-// tododev: cuando regreso al home hacer un scroll to top
 // tododev: Resolver topbar en devices small y medium-up, en small el height tiene que ser 40-50px

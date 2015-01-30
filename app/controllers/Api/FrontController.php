@@ -33,12 +33,19 @@ class FrontController extends \BaseController {
             $desc = $projectData['text'];
 
             return Response::json(array(
-                'link'    => $id,
+                'link'  => $id,
                 'title' => $title,
                 'type'  => $type,
                 'img'   => $img,
                 'desc'  => $desc
-            ));
+            ), 200);
+        } else
+        {
+            return Response::json(array(
+                'error' => [
+                    'message' => 'Project does not exist'
+                ]
+            ), 404);
         }
 
     }

@@ -6,9 +6,15 @@ define([
 
     var API = {
         showPreview: function (id) {
-            controller.showPreview(id, function () {
-                return App.command("set:active:thumb", id);
-            });
+            controller.showPreview(
+                id,
+                function () {
+                    return App.command("set:active:thumb", id);
+                },
+                function () {
+                    presenter.router.navigate("", {trigger: true, replace: true});
+                }
+            );
         },
         showWelcome: function () {
             controller.showWelcome(function () {
@@ -33,7 +39,8 @@ define([
 
     var presenter = {
         start: function () {
-            new Route();
+            if (!this.router)
+                this.router = new Route();
         }
     };
 

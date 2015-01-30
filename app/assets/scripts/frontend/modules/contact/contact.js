@@ -27,7 +27,7 @@ define([
                         left: 'Your email has been received',
                         right: 'Thank you for contacting me!'
                     },
-                    ttl: 3000
+                    ttl: false
                 });
 
                 notification.show();
@@ -36,6 +36,17 @@ define([
                 submit.removeAttr('disabled');
             }
         }).fail(function () {
+            var notification = new Notification({
+                type: 'alert',
+                columns: 1,
+                message: {
+                    message: 'Your message could not be send. Please try again.'
+                },
+                ttl: false
+            });
+
+            notification.show();
+
             submit.removeAttr('disabled');
         });
 
